@@ -1,0 +1,8 @@
+{
+  "name": "code-nus",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap-sass-official": "^3.1.1"
+  }
+}
+

@@ -1,0 +1,248 @@
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+$ORANGE: #FF9900;
+
+/* Space out content a bit */
+body {
+    padding-bottom: 20px;
+}
+
+.content-wrapper {
+    min-height: 700px;
+}
+
+.nav li {
+    float: left;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    background-image: url("/images/title.jpg");
+    background-size: cover;
+    background-position: center;
+    color: $ORANGE;
+    margin-bottom: 0;
+    margin-top: 50px;
+
+    &:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        margin-left: -4px;
+    }
+
+    .container {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.search-container {
+    padding-left: 0;
+}
+
+.search-bar {
+    padding: 0.4em 0;
+    background: lighten($ORANGE, 45);
+
+    input {
+        appearance: none;
+        font-size: 1.5em;
+        border: none;
+        background: transparent;
+        height: 2em;
+        padding-left: 2em;
+        width: 100%;
+
+        background-image: url("/images/search.png");
+        background-size: 1.6em;
+        background-position: 0.2em 0.2em;
+        background-repeat: no-repeat;
+
+        outline: none;
+    }
+}
+
+.project {
+    padding: 1px;
+    margin-bottom: 1em;
+    background: $ORANGE;
+    position: relative;
+    color: #fefefe;
+
+    $padding: 10px;
+    $links-width: 10.5em;
+
+    :link, :visited {
+        color: white;
+    }
+
+    .stats {
+        position: absolute;
+        right: $padding;
+        top: 7px;
+    }
+
+    .stars {
+        display: inline-block;
+        margin: 0 3px;
+        color: white;
+        font-size: 1.2em;
+        &:after {
+            content: " \2605";
+        }
+    }
+
+    header {
+        padding: $padding;
+        padding-bottom: 0;
+        position: relative;
+        margin-right: $links-width;
+
+        .title {
+            font-size: 2em;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        .author {
+            display: inline-block;
+            font-style: italic;
+
+            &:before {
+                content: "by ";
+            }
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+
+    .links {
+        position: absolute;
+        top: 15px;
+        bottom: 0;
+        right: $padding;
+        width: auto;
+
+        :link {
+            display: inline-block;
+            background: darken($ORANGE, 10);
+            font-weight: bold;
+            padding: 5px;
+            vertical-align: middle;
+            margin: 0 3px;
+
+            &:hover {
+                text-decoration: none;
+                background: lighten($ORANGE, 10);
+            }
+        }
+
+        :link, :visited {
+            color: white;
+        }
+
+        &:after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    .body {
+        position: relative;
+        min-height: 2.5em;
+        margin-right: $links-width;
+        font-size: 1.1em;
+
+        .description {
+            padding: $padding;
+            padding-top: 0;
+        }
+    }
+}
+
+.project-list-container {
+    .alert {
+        margin: 2em 0;
+    }
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 2em 0;
+
+    &>li {
+        
+    }
+}
+
+.page-content {
+    margin-top: 75px;
+    line-height: 1.6;
+    font-size: 1.3em;
+    max-width: 800px;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.featured {
+    article {
+        line-height: 1.6;
+        font-size: 1.1em;
+    }
+
+    .promo {
+        color: #999;
+        font-size: 0.9em;
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}

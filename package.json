@@ -1,0 +1,34 @@
+{
+  "name": "code-nus",
+  "version": "0.0.0",
+  "dependencies": {
+    "lunr": "",
+    "reactify": "~0.10.0",
+    "react": "~0.10.0",
+    "jquery": "~2.1"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.0",
+    "gulp-load-plugins": "~0.3.0",
+    "gulp-util": "~2.2.9",
+    "gulp-autoprefixer": "~0.0.6",
+    "gulp-jshint": "~1.4.0",
+    "gulp-imagemin": "~0.1.4",
+    "gulp-clean": "~0.2.4",
+    "gulp-bower": "0.0.3",
+    "gulp-cache": "~0.1.1",
+    "gulp-react": "~0.2.0",
+    "gulp-size": "~0.1.2",
+    "gulp-ruby-sass": "~0.3.0",
+    "gulp-markdown": "~1.0",
+    "gulp-connect": "~1.0.0",
+    "gulp-useref": "~0.4.4",
+    "gulp-browserify": "~0.4.6",
+    "swig": "~1.4",
+    "through2": "~0.6",
+    "gulp-uglify": ""
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

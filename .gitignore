@@ -1,0 +1,6 @@
+node_modules
+.scss-cache
+.sass-cache
+dist
+app/bower_components
+app/scripts/data.json
