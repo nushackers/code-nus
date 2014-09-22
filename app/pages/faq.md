@@ -8,6 +8,6 @@
 
 ### What's git?
 
-### What's github?
+### What's GitHub?
 
 ### What's a pull request?
