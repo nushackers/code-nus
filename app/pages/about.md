@@ -14,10 +14,9 @@ easy and fast.
 
 To that end, we have made this whole platform hackable - you can send us pull
 requests for practically anything you see on this website. The source code is
-available on GitHub: [https://github.com/nushackers/code-
-nus](https://github.com/nushackers/code-nus). Even adding your project requires
-a pull request =). To find out more, head over to [our guide]('/how_to') for
-more details.
+available on GitHub: [https://github.com/nushackers/code-nus](https://github.com/nushackers/code-nus).
+Even adding your project requires a pull request =). To find out more, head over
+to [our guide](/how_to) for more details.
 
 ## Who
 
