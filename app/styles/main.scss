@@ -15,6 +15,16 @@ p {
     margin: 1.2em 0;
 }
 
+h2, h3 {
+    :link, :visited {
+        color: black;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
 .content-wrapper {
     min-height: 700px;
 }

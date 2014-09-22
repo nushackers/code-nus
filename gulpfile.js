@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     through = require('through2'),
     swig = require('swig'),
     path = require('path'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    toc = require('gulp-toc');
 
 // Load plugins
 var $ = require('gulp-load-plugins')();
@@ -76,6 +77,7 @@ gulp.task('scripts', function () {
 gulp.task('md-page', function () {
     return gulp.src('app/pages/*.md')
         .pipe(markdown())
+        .pipe(toc())
         .pipe(applyTemplate('app/templates/page.html'))
         .pipe(prettifyPath())
         .pipe(gulp.dest('dist/'));
