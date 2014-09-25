@@ -1,10 +1,11 @@
 $border-radius-base: 0;
 $border-radius-large: 0;
 $border-radius-small: 0;
+$ORANGE: rgba(255,153,0, 0.9);
+
+$btn-success-bg: $ORANGE;
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
-
-$ORANGE: #FF9900;
 
 /* Space out content a bit */
 body {
@@ -59,14 +60,20 @@ h2, h3 {
     background-position: center;
     color: $ORANGE;
     margin-bottom: 0;
+    padding: 0;
     margin-top: 50px;
 
-    &:before {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-        height: 100%;
-        margin-left: -4px;
+    .jumbotron-inner {
+        background: rgba(black, 0.4);
+        padding: 30px;
+        margin: 0;
+        &:before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            margin-left: -4px;
+        }
     }
 
     .container {
