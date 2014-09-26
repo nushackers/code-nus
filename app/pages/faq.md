@@ -4,37 +4,31 @@
 
 ### What type of projects can I put here?
 
-We encourage you to submit a pull request for any side-projects that you think might be beneficial for the NUS community. Be it a web application that gives a cleaner interface to using IVLE or even a set of scripts that might students,
+Pretty much anything you'd like others to see, regardless of if it's related to NUS or not.
 
 ### How do I know if my project is good enough to be on Code@NUS?
 
-Add anything that might be the slightest bit useful for the community! The goal of Code@NUS is to increase students’ awareness of the projects done by NUS students. Adding your project here will help increase awareness of your project and could help you find more contributors.
+If someone might find your project useful in **any way** at all, it's good enough. The goal of Code@NUS is to increase awareness of projects done by NUS students, and help you find more contributors.
 
-### Can I add projects that do not belong to me?
+### Can I add projects that don't belong to me?
 
 Unfortunately, we only accept requests by a project’s author. If you’re adding a project that has a team of contributors, we assume that you’re adding the project with their consent, and on behalf of them.
 
 ### How do I add my project?
 
-We have a [guide](/how_to) for you.
+Check out our [guide!](/how_to)
 
 ### Why should I open source my project?
 
-Firstly, why not? There are reasons for which you may not want to open source -
-if there are legal issues or if you want to monetize it, for example. Though
-even if your project is commercial, you can still open source it!
+Why not? There may be reasons why you may not want to open source -
+if there are legal issues with doing so, or if you want to monetize, for example. It's still possible to open source commercial products, though (and many companies do!)
 
-On the other hand, open-sourcing your project allows people to help you find and
-fix bugs. In the case that you may not be interested in maintaining the project
-any more, it's also a lot easier to pass it on to someone else. If people have
-ideas to build things on your project, it's also more convenient for them to do
-so. It also adds value to your project because the other programmers can now
-read your code and learn how you implement certain things.
+Open-sourcing your project allows people to help you find and fix bugs, and also allows for greater continuity. In the event that you may not be interested in maintaining the project
+any more, it's a lot easier to pass it on to someone else; even if you don't explicitly do so, it's also easier for someone else to come along and pick up where you left off.
 
-Open-sourcing your projects on websites like [GitHub](https://github.com) is
-also a great way to build up your portfolio and advertise your work. It also
-allows your to gauge the level of interest the community (especially your fellow
-programmers) have in the project.
+Open source projects are also much more convenient for others to build upon, which adds value to your project. They're also a great learning tool for other programmers who can now read your code and learn how you did certain things.
+
+Finally, open-sourcing your projects on websites like [GitHub](https://github.com) are a great way to build up your portfolio and advertise your work. It also allows you to gauge the level of interest the community (especially your fellow programmers) have in the project.
 
 ### How do I learn git?
 
