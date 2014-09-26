@@ -43,11 +43,15 @@ give it a try!
 
 ### What's a pull request?
 
-Suppose you want to fix a bug in someone else's GitHub repository. You can't push to that repository because you don't have write access. You can,
-however, fork the repository (that is, copy the repository) and add in your
-changes. However, it would be great if you could add your change to the original
+A pull request is essentially a set of commits that someone (maybe you) would like to be merged into another repository.
+
+Suppose you want to fix a bug or add some features to a project in someone else's GitHub repository. You can't push directly to that repository because you don't have write access, but you can fork the repository (that is, make a copy of it) and make your changes there.
+
+However, it would be great if you could have your work merged back into the original
 repository so more people can benefit from it! This is where pull requests come
-in. You can send the original author a pull request - a bunch of commits that
+in. You can send the original author a pull request - the series of commits that
 you have added to the forked repository, perhaps with some comments. The author
-will (hopefully!) review it and if they think that it's good to go, the commits
-will then be added to the original repository! You can read more about how you can do pull request on GitHub: [https://help.github.com/articles/using-pull-requests](https://help.github.com/articles/using-pull-requests).
+can then review the changes and if they want, merge the commits
+into the original repository!
+
+You can read more about how you can make pull requests on GitHub here: [https://help.github.com/articles/using-pull-requests](https://help.github.com/articles/using-pull-requests).
