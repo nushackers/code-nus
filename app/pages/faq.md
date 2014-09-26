@@ -32,8 +32,7 @@ Finally, open-sourcing your projects on websites like [GitHub](https://github.co
 
 ### How do I learn git?
 
-GitHub has a great tutorial on git - [try.github.io](https://try.github.io/) -
-give it a try!
+GitHub has a great tutorial on git - [give it a try!](https://try.github.io/)
 
 ### What's a pull request?
 
