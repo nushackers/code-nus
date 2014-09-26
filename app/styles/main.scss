@@ -251,6 +251,12 @@ h2, h3 {
     }
 }
 
+.toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
