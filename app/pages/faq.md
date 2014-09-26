@@ -12,7 +12,7 @@ If someone might find your project useful in **any way** at all, it's good enoug
 
 ### Can I add projects that don't belong to me?
 
-Unfortunately, we only accept requests by a project’s author. If you’re adding a project that has a team of contributors, we assume that you’re adding the project with their consent, and on behalf of them.
+Unfortunately, we only accept requests by a project’s author. If you’re adding a project that has a team of contributors, we assume that you’re adding the project with their consent, and on their behalf.
 
 ### How do I add my project?
 
