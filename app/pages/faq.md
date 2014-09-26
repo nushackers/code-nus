@@ -31,24 +31,23 @@ ideas to build things on your project, it's also more convenient for them to do
 so. It also adds value to your project because the other programmers can now
 read your code and learn how you implement certain things.
 
-Open-sourcing your projects on websites like [github](https://github.com) is
+Open-sourcing your projects on websites like [GitHub](https://github.com) is
 also a great way to build up your portfolio and advertise your work. It also
 allows your to gauge the level of interest the community (especially your fellow
 programmers) have in the project.
 
 ### How do I learn git?
 
-Github has a great tutorial on git - [try.github.io](https://try.github.io/) -
+GitHub has a great tutorial on git - [try.github.io](https://try.github.io/) -
 give it a try!
 
 ### What's a pull request?
 
-Suppose you want to fix a bug in someone else's github repository. Now you can't
-really push to that repository because you don't have the write access. You can,
+Suppose you want to fix a bug in someone else's GitHub repository. You can't push to that repository because you don't have write access. You can,
 however, fork the repository (that is, copy the repository) and add in your
-changes. However, it will be great if you can add your change to the original
-repository so more people can benefit from it! This is where pull request comes
-in. You can send the original author a "pull request" - a bunch of commits that
+changes. However, it would be great if you could add your change to the original
+repository so more people can benefit from it! This is where pull requests come
+in. You can send the original author a pull request - a bunch of commits that
 you have added to the forked repository, perhaps with some comments. The author
-will review it (hopefully!) and if he thinks that it's good to go, the commits
-will then be added to the original repository! You can read more about how you can do pull request on Github: [https://help.github.com/articles/using-pull-requests](https://help.github.com/articles/using-pull-requests).
+will (hopefully!) review it and if they think that it's good to go, the commits
+will then be added to the original repository! You can read more about how you can do pull request on GitHub: [https://help.github.com/articles/using-pull-requests](https://help.github.com/articles/using-pull-requests).
