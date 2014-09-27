@@ -9,6 +9,14 @@ var React = require('react'),
     lunr = require('lunr'),
     $ = require('jquery');
 
+// from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\#&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.hash);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 var popularProjects,
     projects,
     recentProjects,
@@ -23,8 +31,11 @@ function scoring(s1, s2) {
     return s1 * s2 / (s1 + s2);
 }
 
-function updateDisplay(searchTerm) {
+function updateDisplay() {
     /* jshint trailing:false, quotmark:false, newcap:false */
+    var searchTerm = getParameterByName('search');
+    console.log(searchTerm);
+    $('input').val(searchTerm);
     var results = [];
     if (searchTerm) {
         results = idx.search(searchTerm).sort(function(a, b) {
@@ -92,10 +103,12 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
         }
     });
 
-    updateDisplay($('input').val());
     $('input').on('input', function(evt) {
         var searchTerm = evt.target.value;
-        updateDisplay(searchTerm);
+        location.hash = "search=" + searchTerm;
     });
+
+    $(window).on('hashchange', updateDisplay);
+    updateDisplay()
 });
 
