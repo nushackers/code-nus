@@ -24,7 +24,8 @@ var popularProjects,
 
 var idx = lunr(function () {
     this.field('title', { boost: 10 });
-    this.field('description');
+    this.field('description', { boost: 5 });
+    this.field('author_name')
 });
 
 function scoring(s1, s2) {
@@ -96,6 +97,7 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
     projects.forEach(function(p, ind) {
         p.id = ind;
         p.last_commit_date = new Date(p.last_commit_date);
+        p.author_name = p.author.name;
         idx.add(p);
 
         if (p.repository.href === featuredProjectInfo.url) {
