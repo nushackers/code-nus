@@ -35,7 +35,6 @@ function scoring(s1, s2) {
 function updateDisplay() {
     /* jshint trailing:false, quotmark:false, newcap:false */
     var searchTerm = getParameterByName('search');
-    console.log(searchTerm);
     $('input').val(searchTerm);
     var results = [];
     if (searchTerm) {
@@ -105,8 +104,8 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
         }
     });
 
-    $('input').on('input', function(evt) {
-        var searchTerm = evt.target.value;
+    $('.search-bar input').on('input', function(evt) {
+        var searchTerm = $('.search-bar input').val();
         location.hash = "search=" + searchTerm;
     });
 
