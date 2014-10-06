@@ -74,6 +74,14 @@ function updateDisplay() {
                         <ProjectList projects={recentProjects} />
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <header>
+                            <h2>All Projects</h2>
+                        </header>
+                        <ProjectList projects={projects} />
+                    </div>
+                </div>
             </div>,
             document.querySelector(".project-list-container")
         );
