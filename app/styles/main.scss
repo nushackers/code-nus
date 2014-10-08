@@ -90,6 +90,14 @@ h2, h3 {
         display: inline-block;
         vertical-align: middle;
     }
+    
+    h1 {
+        text-shadow: 2px 2px 2px #000;
+    }
+    
+    .lead {
+        text-shadow: 1px 1px 1px #000;
+    }
 }
 
 .search-container {
@@ -156,6 +164,8 @@ h2, h3 {
     background: $ORANGE;
     position: relative;
     color: #fefefe;
+    border-radius: 5px;
+    border-bottom: 5px solid #C66A00;
 
     $padding: 10px;
     $links-width: 10.5em;
