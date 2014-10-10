@@ -165,7 +165,7 @@ h2, h3 {
     position: relative;
     color: #fefefe;
     border-radius: 5px;
-    border-bottom: 5px solid #C66A00;
+    border-bottom: 5px solid darken($ORANGE, 10);
 
     $padding: 10px;
     $links-width: 10.5em;
