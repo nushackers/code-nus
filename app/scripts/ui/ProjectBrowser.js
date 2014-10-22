@@ -18,7 +18,8 @@ var ProjectBrowser = React.createClass({
     },
     getInitialState: function() {
         return {
-            maxProjects: 5
+            maxProjects: 5,
+            tag: null
         };
     },
     showMore: function() {
@@ -28,8 +29,41 @@ var ProjectBrowser = React.createClass({
             });
         }
     },
+    renderTag: function(tag) {
+        var isCurrent = tag == this.state.tag;
+        if (tag == 'all') {
+            isCurrent = !this.state.tag;
+        }
+        return (
+            <li>
+                <button type="button" className={"btn btn-sm" + (isCurrent ? " btn-success" : "")} onClick={this.doFilter(tag)}>
+                    {tag}
+                </button>
+            </li>
+        )
+    },
+    doFilter: function(tag) {
+        return function() {
+            this.setState({
+                tag: tag === 'all' ? null : tag,
+                maxProjects: 5
+            });
+        }.bind(this);
+    },
     render: function() {
         var featuredProject = this.props.featuredProject;
+        var tag = this.state.tag;
+        function filterTag(project) {
+            return !!project.tags[tag];
+        }
+
+        var popularProjects = this.props.popularProjects,
+            recentProjects = this.props.recentProjects;
+
+        if (tag) {
+            popularProjects = popularProjects.filter(filterTag);
+            recentProjects = recentProjects.filter(filterTag);
+        }
         return (
             /* jshint trailing:false, quotmark:false, newcap:false */
             <div>
@@ -44,19 +78,36 @@ var ProjectBrowser = React.createClass({
                     </p>
                 </div>
                 <div className="row">
-                    <div className="col-md-6">
-                        <header>
-                            <h2>Popular</h2>
-                        </header>
-                        <ProjectList projects={this.props.popularProjects.slice(0, this.state.maxProjects)} />
-                    </div>
-                    <div className="col-md-6">
-                        <header>
-                            <h2>Recently updated</h2>
-                        </header>
-                        <ProjectList projects={this.props.recentProjects.slice(0, this.state.maxProjects)} />
+                    <div className="col-md-12">
+                        <ul className="list-inline tags-list">
+                            { this.renderTag('all') }
+                            {
+                                this.props.allTags.map(this.renderTag)
+                            }
+                        </ul>
                     </div>
                 </div>
+                { popularProjects.length > 5 ?
+                    <div className="row">
+                        <div className="col-md-6">
+                            <header>
+                                <h2>Popular</h2>
+                            </header>
+                            <ProjectList projects={popularProjects.slice(0, this.state.maxProjects)} />
+                        </div>
+                        <div className="col-md-6">
+                            <header>
+                                <h2>Recently updated</h2>
+                            </header>
+                            <ProjectList projects={recentProjects.slice(0, this.state.maxProjects)} />
+                        </div>
+                    </div> :
+                    <div className="row">
+                        <div className="col-md-12">
+                            <ProjectList projects={popularProjects.slice(0, this.state.maxProjects)} />
+                        </div>
+                    </div>
+                }
             </div>
         );
     }

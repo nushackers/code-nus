@@ -21,7 +21,8 @@ function getParameterByName(name) {
 var popularProjects,
     projects,
     recentProjects,
-    featuredProject;
+    featuredProject,
+    allTags = [];
 
 var projectBrowser;
 
@@ -58,6 +59,7 @@ function updateDisplay() {
                 featuredProjectInfo={featuredProjectInfo}
                 popularProjects={popularProjects}
                 recentProjects={recentProjects}
+                allTags={allTags}
             />,
             document.querySelector(".project-list-container")
         );
@@ -93,6 +95,11 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
         if (p.repository.href === featuredProjectInfo.url) {
             featuredProject = p;
         }
+    });
+
+    allTags = Object.keys(data.tag_stats);
+    allTags.sort(function(a, b) {
+        return data.tag_stats[b] - data.tag_stats[a];
     });
 
     popularProjects = projects.slice(0);
