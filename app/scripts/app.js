@@ -5,6 +5,7 @@
 var React = require('react'),
     ProjectList = require('./ui/ProjectList'),
     ProjectItem = require('./ui/ProjectItem'),
+    ProjectBrowser = require('./ui/ProjectBrowser'),
     featuredProjectInfo = require('./featured_project'),
     lunr = require('lunr'),
     $ = require('jquery');
@@ -22,6 +23,8 @@ var popularProjects,
     recentProjects,
     featuredProject;
 
+var projectBrowser;
+
 var idx = lunr(function () {
     this.field('title', { boost: 10 });
     this.field('description', { boost: 5 });
@@ -38,6 +41,7 @@ function updateDisplay() {
     $('input').val(searchTerm);
     var results = [];
     if (searchTerm) {
+        projectBrowser = null;
         results = idx.search(searchTerm).sort(function(a, b) {
             return scoring(b.score, projects[b.ref].stars) - scoring(a.score, projects[a.ref].stars);
         }).map(function(result) {
@@ -48,41 +52,13 @@ function updateDisplay() {
             document.querySelector(".project-list-container")
         );
     } else {
-        React.renderComponent(
-            <div>
-                <div className="featured">
-                    <header>
-                        <h2>Featured</h2>
-                    </header>
-                    <ProjectItem project={featuredProject} />
-                    <article className="project-post" dangerouslySetInnerHTML={{__html: featuredProjectInfo.description}} />
-                    <p className="promo">
-                        Want to get your project featured? <a href="http://nushackers.org/contact">Contact us!</a>
-                    </p>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        <header>
-                            <h2>Popular</h2>
-                        </header>
-                        <ProjectList projects={popularProjects} />
-                    </div>
-                    <div className="col-md-6">
-                        <header>
-                            <h2>Recently updated</h2>
-                        </header>
-                        <ProjectList projects={recentProjects} />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <header>
-                            <h2>All Projects</h2>
-                        </header>
-                        <ProjectList projects={projects} />
-                    </div>
-                </div>
-            </div>,
+        projectBrowser = React.renderComponent(
+            <ProjectBrowser
+                featuredProject={featuredProject}
+                featuredProjectInfo={featuredProjectInfo}
+                popularProjects={popularProjects}
+                recentProjects={recentProjects}
+            />,
             document.querySelector(".project-list-container")
         );
     }
@@ -93,12 +69,19 @@ var readyd = $.Deferred();
 $(document).ready(function() {
     'use strict';
     readyd.resolve();
+
+    $(window).on('scroll', function(){
+        if (!projectBrowser) return;
+        if( $(window).scrollTop() + 200 > $(document).height() - $(window).height() ) {
+            projectBrowser.showMore();
+        }
+    }).scroll();
 });
 
 $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
     var data = res[0];
-    popularProjects = data.popular_projects;
-    recentProjects = data.recent_projects;
+    // popularProjects = data.popular_projects;
+    // recentProjects = data.recent_projects;
     projects = data.projects;
 
     projects.forEach(function(p, ind) {
@@ -110,6 +93,15 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
         if (p.repository.href === featuredProjectInfo.url) {
             featuredProject = p;
         }
+    });
+
+    popularProjects = projects.slice(0);
+    recentProjects = projects.slice(0);
+    popularProjects.sort(function(a, b) {
+        return a.star - b.star;
+    });
+    recentProjects.sort(function(a, b) {
+        return b.last_commit_date - a.last_commit_date;
     });
 
     $('.search-bar input').on('input', function(evt) {
