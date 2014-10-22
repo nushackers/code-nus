@@ -98,7 +98,7 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
     popularProjects = projects.slice(0);
     recentProjects = projects.slice(0);
     popularProjects.sort(function(a, b) {
-        return a.star - b.star;
+        return a.stars - b.stars;
     });
     recentProjects.sort(function(a, b) {
         return b.last_commit_date - a.last_commit_date;
