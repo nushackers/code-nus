@@ -18,8 +18,7 @@ var ProjectBrowser = React.createClass({
     },
     getInitialState: function() {
         return {
-            maxProjects: 5,
-            tag: null
+            maxProjects: 5
         };
     },
     showMore: function() {
@@ -28,9 +27,9 @@ var ProjectBrowser = React.createClass({
         });
     },
     renderTag: function(tag) {
-        var isCurrent = tag == this.state.tag;
-        if (tag == 'all') {
-            isCurrent = !this.state.tag;
+        var isCurrent = tag == this.props.tag;
+        if (tag == 'all' && !isCurrent) {
+            isCurrent = !this.props.tag;
         }
         return (
             <li>
@@ -42,10 +41,7 @@ var ProjectBrowser = React.createClass({
     },
     doFilter: function(tag) {
         return function() {
-            this.setState({
-                tag: tag === 'all' ? null : tag,
-                maxProjects: Math.min(5, this.props.popularProjects.length)
-            });
+            location.hash = "tag=" + tag;
         }.bind(this);
     },
     renderTagChooser: function() {
@@ -64,7 +60,7 @@ var ProjectBrowser = React.createClass({
     },
     render: function() {
         var featuredProject = this.props.featuredProject;
-        var tag = this.state.tag;
+        var tag = this.props.tag;
         function filterTag(project) {
             return !!project.tags[tag];
         }
@@ -72,7 +68,7 @@ var ProjectBrowser = React.createClass({
         var popularProjects = this.props.popularProjects,
             recentProjects = this.props.recentProjects;
 
-        if (tag) {
+        if (tag && tag != 'all') {
             popularProjects = popularProjects.filter(filterTag);
             recentProjects = recentProjects.filter(filterTag);
         }

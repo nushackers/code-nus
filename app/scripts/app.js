@@ -22,6 +22,7 @@ var popularProjects,
     projects,
     recentProjects,
     featuredProject,
+    currentTag = null,
     allTags = [];
 
 var projectBrowser;
@@ -40,6 +41,10 @@ function updateDisplay() {
     /* jshint trailing:false, quotmark:false, newcap:false */
     var searchTerm = getParameterByName('search');
     $('input').val(searchTerm);
+    currentTag = null;
+    if (!searchTerm) {
+        currentTag = getParameterByName('tag');
+    }
     var results = [];
     if (searchTerm) {
         projectBrowser = null;
@@ -60,6 +65,7 @@ function updateDisplay() {
                 popularProjects={popularProjects}
                 recentProjects={recentProjects}
                 allTags={allTags}
+                tag={currentTag}
             />,
             document.querySelector(".project-list-container")
         );
@@ -117,6 +123,6 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
     });
 
     $(window).on('hashchange', updateDisplay);
-    updateDisplay()
+    updateDisplay();
 });
 
