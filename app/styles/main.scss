@@ -170,6 +170,43 @@ h2, h3 {
     $padding: 10px;
     $links-width: 10.5em;
 
+    .image {
+        width: 15%;
+        float: left;
+        padding: 10px 5px;
+        box-sizing: border-box;
+
+        img {
+            max-width: 100%;
+            max-height: 7em;
+            transition-duration: 0.2s;
+            position: relative;
+        }
+    }
+
+    .text {
+        width: 85%;
+        float: left;
+        position: relative;
+    }
+
+
+    &.no-image {
+        .image {
+            display: none;
+        }
+
+        .text {
+            width: 100%;
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
     :link, :visited {
         color: white;
     }
