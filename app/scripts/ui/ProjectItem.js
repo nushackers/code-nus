@@ -33,13 +33,13 @@ var ProjectItem = React.createClass({
                     </div>
                     <div className="stats">
                         <div className="stars">
-                            {project.stars}
+                            <a href={project.repository.href}>{project.stars}</a>
                         </div>
                     </div>
                 </div>
                 <div className="image">
                     { project.image ?
-                    <img src={project.image} /> : []
+                    <a href={project.repository.href}><img src={project.image} /></a> : []
                     }
                 </div>
             </div>

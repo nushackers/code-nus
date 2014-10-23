@@ -222,7 +222,7 @@ h2, h3 {
         margin: 0 3px;
         color: white;
         font-size: 1.2em;
-        &:after {
+        a:after {
             content: " \2605";
         }
     }
