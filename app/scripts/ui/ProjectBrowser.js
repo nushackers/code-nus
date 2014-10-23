@@ -23,11 +23,9 @@ var ProjectBrowser = React.createClass({
         };
     },
     showMore: function() {
-        if (this.state.maxProjects < this.props.popularProjects.length) {
-            this.setState({
-                maxProjects: this.state.maxProjects + 5
-            });
-        }
+        this.setState({
+            maxProjects: Math.min(this.state.maxProjects + 5, this.props.popularProjects.length)
+        });
     },
     renderTag: function(tag) {
         var isCurrent = tag == this.state.tag;
@@ -46,9 +44,23 @@ var ProjectBrowser = React.createClass({
         return function() {
             this.setState({
                 tag: tag === 'all' ? null : tag,
-                maxProjects: 5
+                maxProjects: Math.min(5, this.props.popularProjects.length)
             });
         }.bind(this);
+    },
+    renderTagChooser: function() {
+        return (
+            <div className="row">
+                <div className="col-md-12">
+                    <ul className="list-inline tags-list">
+                        { this.renderTag('all') }
+                        {
+                            this.props.allTags.map(this.renderTag)
+                        }
+                    </ul>
+                </div>
+            </div>
+        )
     },
     render: function() {
         var featuredProject = this.props.featuredProject;
@@ -77,16 +89,7 @@ var ProjectBrowser = React.createClass({
                         Want to get your project featured? <a href="http://nushackers.org/contact">Contact us!</a>
                     </p>
                 </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <ul className="list-inline tags-list">
-                            { this.renderTag('all') }
-                            {
-                                this.props.allTags.map(this.renderTag)
-                            }
-                        </ul>
-                    </div>
-                </div>
+                { this.renderTagChooser() }
                 { popularProjects.length > 5 ?
                     <div className="row">
                         <div className="col-md-6">
@@ -108,6 +111,7 @@ var ProjectBrowser = React.createClass({
                         </div>
                     </div>
                 }
+                { popularProjects.length > 6 ? this.renderTagChooser() : [] }
             </div>
         );
     }
