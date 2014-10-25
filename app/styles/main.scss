@@ -158,6 +158,19 @@ h2, h3 {
     }
 }
 
+.sort-switch {
+    padding: 1em;
+    display: inline-block;
+
+    button {
+        font-weight: bold;
+    }
+}
+
+.sort-switch-outer {
+    text-align: center;
+}
+
 .project {
     padding: 1px;
     margin-bottom: 1em;
