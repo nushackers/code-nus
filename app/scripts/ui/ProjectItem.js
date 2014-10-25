@@ -16,7 +16,7 @@ var ProjectItem = React.createClass({
                             {project.title}
                         </div>
                         <div className="author">
-                            <a href={project.author.href}>{project.author.name}</a>
+                            <a href={"#search=" + project.author.name}>{project.author.name}</a>
                         </div>
                     </header>
                     <div className="body">
