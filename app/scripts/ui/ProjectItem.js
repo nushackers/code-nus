@@ -7,9 +7,13 @@ var React = require('react');
 var ProjectItem = React.createClass({
     render: function() {
         var project = this.props.project;
+        var image = project.image;
+        if (this.props.hideImage) {
+            image = null;
+        }
         return (
             /* jshint trailing:false, quotmark:false, newcap:false */
-            <div className={"project" + (project.image ? "" : " no-image")}>
+            <div className={"project" + (image ? "" : " no-image")}>
                 <div className="text">
                     <header>
                         <div className="title">
@@ -38,7 +42,7 @@ var ProjectItem = React.createClass({
                     </div>
                 </div>
                 <div className="image">
-                    { project.image ?
+                    { image ?
                     <a href={project.repository.href}><img src={project.image} /></a> : []
                     }
                 </div>

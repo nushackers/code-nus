@@ -171,6 +171,7 @@ gulp.task('watch', ['html', 'images', 'md-page', 'bundle', 'connect'], function 
 
     // Watch .json files
     gulp.watch('app/scripts/data.json', ['json']);
+    gulp.watch('app/scripts/featured_projects.json', ['json']);
 
     // Watch image files
     gulp.watch('app/images/**/*', ['images']);

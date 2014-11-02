@@ -88,8 +88,11 @@ var ProjectBrowser = React.createClass({
                     <header>
                         <h2>Featured</h2>
                     </header>
-                    <ProjectItem project={featuredProject} />
-                    <article className="project-post" dangerouslySetInnerHTML={{__html: this.props.featuredProjectInfo.description}} />
+                    <ProjectItem project={featuredProject} hideImage={true} />
+                    <article className="project-post">
+                        <img className="featured-image" src={featuredProject.image} />
+                        <div dangerouslySetInnerHTML={{__html: this.props.featuredProjectInfo.description}} />
+                    </article>
                     <p className="promo">
                         Want to get your project featured? <a href="http://nushackers.org/contact">Contact us!</a>
                     </p>

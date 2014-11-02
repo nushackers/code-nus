@@ -1,13 +1,9 @@
 {
-    "url": "https://github.com/nusmodifications/nusmods",
+    "url": "https://github.com/jcheng31/isitonspotify",
     "description": "<p>\
-                        NUS Modifications (NUSMods) was founded in 2012 to\
-                        provide a better way for students to plan their school\
-                        timetables. In August, it had 65,000 devices, 400,000\
-                        sessions and 1.6 million page views. It is widely used\
-                        by the school students for timetable scheduling and\
-                        getting comprehensive information regarding modules.\
-                        We plan to add more social features such as timetable\
-                        sharing and discussion forums.\
+                        Sometimes a song on Sportify disappears for no reason and you\
+                        wonder if it'd been completely pulled from the catalogue or\
+                        maybe it's still available on some regions. This nice little hack\
+                        from Jerome makes use of the Sportify API to solve this problem.\
                         </p>"
 }

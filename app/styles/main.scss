@@ -346,6 +346,13 @@ h2, h3 {
 }
 
 .featured {
+    .featured-image {
+        max-width: 30%;
+        float: right;
+        margin-left: 1em;
+    }
+
+
     article {
         line-height: 1.6;
         font-size: 1.1em;
