@@ -19,7 +19,7 @@ var ProjectBrowser = React.createClass({
     getInitialState: function() {
         return {
             maxProjects: 5,
-            isPopular: true
+            isPopular: false
         };
     },
     showMore: function() {
