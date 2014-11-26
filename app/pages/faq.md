@@ -4,7 +4,7 @@
 
 ### What type of projects can I put here?
 
-Pretty much anything you'd like others to see, regardless of if it's related to NUS or not.
+Pretty much any projects you'd like others to see, regardless of if it's related to NUS or not. However, assignments are not considered as projects because it is likely to be duplicated by many others. Course projects with some degree of originality (a project that's proposed by you or your team and not mandated by the instructors) are good as well.
 
 ### How do I know if my project is good enough to be on Code@NUS?
 
