@@ -1,15 +1,21 @@
-$border-radius-base: 0;
-$border-radius-large: 0;
-$border-radius-small: 0;
+$border-radius-base: 5px;
+$border-radius-large: 5px;
+$border-radius-small: 3px;
 $ORANGE: #e68a20;
 
 $btn-success-bg: $ORANGE;
+
+$navbar-height: 50px;
+
+$headings-color: darken($ORANGE, 30);
+$link-color: $ORANGE;
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 /* Space out content a bit */
 body {
     padding-bottom: 20px;
+    padding-top: $navbar-height;
 }
 
 p {
@@ -37,9 +43,8 @@ h2, h3 {
 }
 
 .content-wrapper {
-    padding-top: 55px;
     min-height: 700px;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .nav li {
@@ -54,6 +59,7 @@ h2, h3 {
 
 /* Custom page footer */
 .footer {
+    margin-top: 19px;
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
@@ -103,14 +109,15 @@ h2, h3 {
 }
 
 .search-container {
-    padding-left: 0;
+    margin-top: 1em;
     position: relative;
+    background: lighten($ORANGE, 45);
+    border: 2px solid $ORANGE;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .search-bar {
-    padding: 0.4em 0;
-    background: lighten($ORANGE, 45);
-
     input {
         appearance: none;
         font-size: 1.5em;
@@ -176,11 +183,12 @@ h2, h3 {
 .project {
     padding: 1px;
     margin-bottom: 1em;
-    background: $ORANGE;
     position: relative;
-    color: #fefefe;
+    color: $ORANGE;
+    color: darken($ORANGE, 20);
     border-radius: 5px;
-    border-bottom: 5px solid darken($ORANGE, 10);
+    background: lighten($ORANGE, 45);
+    border: 2px solid lighten($ORANGE, 30);
 
     $padding: 10px;
     $links-width: 10.5em;
@@ -223,7 +231,7 @@ h2, h3 {
     }
 
     :link, :visited {
-        color: white;
+        color: lighten($ORANGE, 20);
     }
 
     .stats {
@@ -235,7 +243,10 @@ h2, h3 {
     .stars {
         display: inline-block;
         margin: 0 3px;
-        color: white;
+        color: $ORANGE;
+        :link, :visited {
+            color: $ORANGE;
+        }
         font-size: 1.2em;
         a:after {
             content: " \2605";
@@ -252,6 +263,10 @@ h2, h3 {
             font-size: 2em;
             display: inline-block;
             margin-right: 4px;
+
+            :link, :visited {
+                color: inherit;
+            }
         }
 
         .author {
@@ -279,20 +294,22 @@ h2, h3 {
 
         :link {
             display: inline-block;
-            background: darken($ORANGE, 10);
+            background: lighten($ORANGE, 45);
+            border: 2px solid;
             font-weight: bold;
             padding: 5px;
             vertical-align: middle;
             margin: 0 3px;
+            border-radius: 3px;
 
             &:hover {
                 text-decoration: none;
-                background: lighten($ORANGE, 10);
+                background: lighten($ORANGE, 55);
             }
         }
 
         :link, :visited {
-            color: white;
+            color: $ORANGE;
         }
 
         &:after {
