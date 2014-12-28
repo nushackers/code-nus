@@ -70,7 +70,17 @@ var ProjectBrowser = React.createClass({
         )
     },
     render: function() {
-        var featuredProject = this.props.featuredProject;
+        var featuredProjects = this.props.featuredProjects;
+        var featuredProjectPairs = [];
+        if (featuredProjects.length > 1) {
+            featuredProjects.forEach(function(p, ind) {
+                if (!(ind % 2)) {
+                    featuredProjectPairs.push([p])
+                } else {
+                    featuredProjectPairs[Math.floor(ind / 2)].push(p)
+                }
+            })
+        }
         var tag = this.props.tag;
         function filterTag(project) {
             return !!project.tags[tag];
@@ -88,9 +98,16 @@ var ProjectBrowser = React.createClass({
                     <header>
                         <h2>Featured</h2>
                     </header>
-                    <ProjectItem project={featuredProject} hideImage={true} />
+                    {featuredProjects.length > 1 ?
+                        featuredProjectPairs.map(function(ps, ind) {
+                            return (<div className="row">
+                                {ps.map(function(p) {
+                                    return (<div className="col-md-6"><ProjectItem project={p} hideImage={true} /></div>)
+                                })}
+                            </div>)
+                        }) : <ProjectItem project={featuredProjects[0]} hideImage={true} /> }
                     <article className="project-post">
-                        <img className="featured-image" src={featuredProject.image} />
+                        <img className="featured-image" src={featuredProjects[0].image} />
                         <div dangerouslySetInnerHTML={{__html: this.props.featuredProjectInfo.description}} />
                     </article>
                     <p className="promo">

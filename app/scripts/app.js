@@ -21,7 +21,7 @@ function getParameterByName(name) {
 var popularProjects,
     projects,
     recentProjects,
-    featuredProject,
+    featuredProjects,
     currentTag = null,
     allTags = [];
 
@@ -60,7 +60,7 @@ function updateDisplay() {
     } else {
         projectBrowser = React.renderComponent(
             <ProjectBrowser
-                featuredProject={featuredProject}
+                featuredProjects={featuredProjects}
                 featuredProjectInfo={featuredProjectInfo}
                 popularProjects={popularProjects}
                 recentProjects={recentProjects}
@@ -91,15 +91,19 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
     // popularProjects = data.popular_projects;
     // recentProjects = data.recent_projects;
     projects = data.projects;
-
+    featuredProjects = [];
+    var urls = {};
+    featuredProjectInfo.urls.forEach(function(u) {
+        urls[u] = true;
+    });
     projects.forEach(function(p, ind) {
         p.id = ind;
         p.last_commit_date = new Date(p.last_commit_date);
         p.author_name = p.author.name;
         idx.add(p);
 
-        if (p.repository.href === featuredProjectInfo.url) {
-            featuredProject = p;
+        if (urls[p.repository.href]) {
+            featuredProjects.push(p);
         }
     });
 

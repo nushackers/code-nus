@@ -1,11 +1,11 @@
 {
-    "url": "https://github.com/jcheng31/isitonspotify",
-    "description": "<p>\
-                        Sometimes a song on Spotify disappears for no reason and you\
-                        wonder if it'd been completely pulled from the catalogue or\
-                        maybe it's still available on some regions. This nice little hack\
-                        from Jerome makes use of the Spotify API to solve this problem. Read\
-                        more about this project from\
-                        <a href='http://ayulin.net/blog/2014/is-it-on-spotify.html'>http://ayulin.net/blog/2014/is-it-on-spotify.html</a>\
-                        </p>"
+    "urls": ["https://github.com/yeokm1/nus-soc-print", "https://github.com/yeokm1/nus-soc-print-ios"],
+    "description": "<blockquote>\
+                    Printing stuff in NUS SoC has always been tedious as it requires one to have a laptop or use the lab computers to send the document. If one forgets his laptop and the labs are in use then GG. Our lab computers are also notoriously slow to login.\
+                        </blockquote>\
+                    <p>\
+                    That's why <a href=\"#search=yeokm1\">Kheng Meng</a> and his friend came out with this brilliant 'hack' to allow you to send your documents to the SoC printer via phone!\
+                    <a href=\"http://yeokhengmeng.com/2014/12/nus-soc-print-androidios-background-technical-aspects-and-learning-points/\">Read more</a> about how this is done. Also as the author is graduating soon, if you are interested in taking over the project,\
+                    leave a comment in the post.\
+                    </p>"
 }
