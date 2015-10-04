@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     swig = require('swig'),
     path = require('path'),
     uglify = require('gulp-uglify'),
+    childProcess = require('child_process'),
     toc = require('gulp-toc');
 
 // Load plugins
@@ -14,13 +15,38 @@ var $ = require('gulp-load-plugins')();
 function applyTemplate(templateFile) {
     return through.obj(function (file, enc, cb) {            
         var tpl = swig.compileFile(path.join(__dirname, templateFile), {autoescape: false, cache: false});
+        var filename = path.basename(file.path);
+        var script = filename.split(".")[0];
 
         var data = {
-            content: file.contents.toString()
+            content: file.contents.toString(),
+            script: script
         };            
         file.contents = new Buffer(tpl(data), 'utf8');
         this.push(file);
         cb();
+    });
+}
+
+function generateFeaturedPage() {
+    return through.obj(function(file, enc, cb) {
+        var tpl = swig.compileFile(path.join(__dirname, 'app/templates/featured.html'), {autoescape: false, cache: false});
+        var featured = childProcess.fork(file.path);
+        featured.on('message', function(msg) {
+            if (msg.success) {
+                var content = msg.data;
+                var data = {
+                    content: content
+                };
+                file.contents = new Buffer(tpl(data), 'utf8');
+                file.path = file.path.split('.js').join('.html');
+                this.push(file);
+                cb(); 
+            } else {
+                console.log(msg.error);
+                cb();
+            }
+        }.bind(this));
     });
 }
 
@@ -61,7 +87,7 @@ gulp.task('json', function () {
 
 // Scripts
 gulp.task('scripts', function () {
-    return gulp.src('app/scripts/app.js')
+    return gulp.src(['app/scripts/index.js'])
         .pipe($.browserify({
             insertGlobals: true,
             transform: ['reactify']
@@ -83,9 +109,17 @@ gulp.task('md-page', function () {
         .pipe(gulp.dest('dist/'));
 });
 
+// featured
+gulp.task('featured-projects', function() {
+    return gulp.src(['./featured.js'])
+        .pipe(generateFeaturedPage())
+        .pipe(gulp.dest('dist'))
+        .pipe($.connect.reload());
+});
+
 // HTML
 gulp.task('html', function () {
-    return gulp.src('app/*.html')
+    return gulp.src('app/index.html')
         .pipe(applyTemplate('app/templates/dynamic.html'))
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
@@ -120,7 +154,7 @@ gulp.task('clean', function () {
 
 // Bundle
 gulp.task('bundle', ['styles', 'json', 'scripts', 'bower'], function(){
-    return gulp.src('./app/*.html')
+    return gulp.src('./app/index.html')
                .pipe(applyTemplate('app/templates/dynamic.html'))
                .pipe($.useref.assets())
                .pipe($.useref.restore())
@@ -129,7 +163,7 @@ gulp.task('bundle', ['styles', 'json', 'scripts', 'bower'], function(){
 });
 
 // Build
-gulp.task('build', ['html', 'bundle', 'images', 'md-page'], function() {
+gulp.task('build', ['html', 'bundle', 'images', 'md-page', 'featured-projects'], function() {
     gulp.start('compress');
 });
 
@@ -152,7 +186,7 @@ gulp.task('bower', function() {
 });
 
 // Watch
-gulp.task('watch', ['html', 'images', 'md-page', 'bundle', 'connect'], function () {
+gulp.task('watch', ['html', 'images', 'md-page', 'featured-projects', 'bundle', 'connect'], function () {
 
     // Watch .html files
     gulp.watch('app/*.html', ['html']);
@@ -164,14 +198,15 @@ gulp.task('watch', ['html', 'images', 'md-page', 'bundle', 'connect'], function 
     gulp.watch('app/styles/**/*.scss', ['styles']);
     
     // Watch templates
-    gulp.watch('app/templates/*.html', ['md-page', 'html']);
+    gulp.watch('app/templates/*.html', ['md-page', 'html', 'featured-projects']);
 
     // Watch .js files
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/scripts/**/*.js', ['scripts', 'featured-projects']);
+    gulp.watch('./featured.js', ['featured-projects']);
 
     // Watch .json files
-    gulp.watch('app/scripts/data.json', ['json']);
-    gulp.watch('app/scripts/featured_projects.json', ['json']);
+    gulp.watch('app/scripts/data.json', ['json', 'featured-projects']);
+    gulp.watch('app/scripts/featured_projects.json', ['json', 'featured-projects']);
 
     // Watch image files
     gulp.watch('app/images/**/*', ['images']);

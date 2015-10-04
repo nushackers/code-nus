@@ -6,9 +6,12 @@ var React = require('react'),
     ProjectList = require('./ui/ProjectList'),
     ProjectItem = require('./ui/ProjectItem'),
     ProjectBrowser = require('./ui/ProjectBrowser'),
-    featuredProjectInfo = require('./featured_project'),
+    featuredProjectsInfo = require("./featured_projects.json"),
+    featuredProjectInfo = featuredProjectsInfo[0],
     lunr = require('lunr'),
     $ = require('jquery');
+
+featuredProjectInfo.projects = [];
 
 // from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 function getParameterByName(name) {
@@ -30,7 +33,7 @@ var projectBrowser;
 var idx = lunr(function () {
     this.field('title', { boost: 10 });
     this.field('description', { boost: 5 });
-    this.field('author_name')
+    this.field('author_name');
 });
 
 function scoring(s1, s2) {
@@ -53,14 +56,13 @@ function updateDisplay() {
         }).map(function(result) {
             return projects[result.ref];
         });
-        React.renderComponent(
+        React.render(
             results.length ? <ProjectList projects={results} /> : <div className="alert alert-warning" role="alert">No results found.</div>,
             document.querySelector(".project-list-container")
         );
     } else {
-        projectBrowser = React.renderComponent(
+        projectBrowser = React.render(
             <ProjectBrowser
-                featuredProjects={featuredProjects}
                 featuredProjectInfo={featuredProjectInfo}
                 popularProjects={popularProjects}
                 recentProjects={recentProjects}
@@ -91,7 +93,7 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
     // popularProjects = data.popular_projects;
     // recentProjects = data.recent_projects;
     projects = data.projects;
-    featuredProjects = [];
+    var featuredProjects = [];
     var urls = {};
     featuredProjectInfo.urls.forEach(function(u) {
         urls[u] = true;
@@ -106,6 +108,7 @@ $.when($.get('/scripts/data.json'), readyd.promise()).done(function(res){
             featuredProjects.push(p);
         }
     });
+    featuredProjectInfo.projects = featuredProjects;
 
     allTags = Object.keys(data.tag_stats);
     allTags.sort(function(a, b) {
