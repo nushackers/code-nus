@@ -34,6 +34,7 @@
     "gulp-useref": "~0.4.4",
     "gulp-util": "~2.2.9",
     "node-jsx": "^0.13.3",
+    "node-sass": "^4.7.2",
     "swig": "~1.4",
     "through2": "~0.6"
   }
