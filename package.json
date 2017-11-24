@@ -2,12 +2,19 @@
   "name": "code-nus",
   "version": "0.0.0",
   "dependencies": {
+    "bootstrap-sass": "^3.3.7",
     "jquery": "~2.1",
     "lunr": "",
     "react": "^0.13.3",
     "reactify": "^1.1.1"
   },
+  "scripts": {
+    "json": "gulp fetch json",
+    "start": "gulp watch",
+    "build": "gulp build"
+  },
   "devDependencies": {
+    "axios": "^0.17.1",
     "gulp": "~3.5.0",
     "gulp-autoprefixer": "~0.0.6",
     "gulp-bower": "0.0.3",
@@ -20,7 +27,7 @@
     "gulp-load-plugins": "~0.3.0",
     "gulp-markdown": "~1.0",
     "gulp-react": "^3.0.1",
-    "gulp-ruby-sass": "~0.3.0",
+    "gulp-sass": "^3.1.0",
     "gulp-size": "~0.1.2",
     "gulp-toc": "^0.1.0",
     "gulp-uglify": "",

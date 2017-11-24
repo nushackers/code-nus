@@ -10,7 +10,7 @@ $navbar-height: 50px;
 $headings-color: darken($ORANGE, 30);
 $link-color: $ORANGE;
 
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 /* Space out content a bit */
 body {
@@ -104,11 +104,11 @@ blockquote {
         display: inline-block;
         vertical-align: middle;
     }
-    
+
     h1 {
         text-shadow: 2px 2px 2px #000;
     }
-    
+
     .lead {
         text-shadow: 1px 1px 1px #000;
     }

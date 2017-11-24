@@ -5,15 +5,18 @@ var gulp = require('gulp'),
     through = require('through2'),
     swig = require('swig'),
     path = require('path'),
+    sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
+    fs = require('fs'),
     childProcess = require('child_process'),
-    toc = require('gulp-toc');
+    toc = require('gulp-toc'),
+    axios = require('axios');
 
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
 function applyTemplate(templateFile) {
-    return through.obj(function (file, enc, cb) {            
+    return through.obj(function (file, enc, cb) {
         var tpl = swig.compileFile(path.join(__dirname, templateFile), {autoescape: false, cache: false});
         var filename = path.basename(file.path);
         var script = filename.split(".")[0];
@@ -21,7 +24,7 @@ function applyTemplate(templateFile) {
         var data = {
             content: file.contents.toString(),
             script: script
-        };            
+        };
         file.contents = new Buffer(tpl(data), 'utf8');
         this.push(file);
         cb();
@@ -41,7 +44,7 @@ function generateFeaturedPage() {
                 file.contents = new Buffer(tpl(data), 'utf8');
                 file.path = file.path.split('.js').join('.html');
                 this.push(file);
-                cb(); 
+                cb();
             } else {
                 console.log(msg.error);
                 cb();
@@ -66,11 +69,10 @@ function prettifyPath() {
 // Styles
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
-        .pipe($.rubySass({
-            style: 'expanded',
-            precision: 10,
-            loadPath: ['app/bower_components']
-        }))
+        .pipe(sass({
+            includePaths: ['node_modules/'],
+            outputStyle: 'compressed',
+        }).on('error', sass.logError))
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('dist/styles'))
         .pipe($.size())
@@ -83,7 +85,15 @@ gulp.task('json', function () {
                 .pipe(gulp.dest('dist/scripts'));
 });
 
-
+gulp.task('fetch', function () {
+    return axios({
+        method:'get',
+        url: 'https://raw.githubusercontent.com/nushackers/code-nus-repos/master/repos.json',
+        responseType:'stream'
+    }).then(function (response) {
+        response.data.pipe(fs.createWriteStream('app/scripts/data.json'));
+    });
+})
 
 // Scripts
 gulp.task('scripts', function () {
@@ -193,10 +203,10 @@ gulp.task('watch', ['html', 'images', 'md-page', 'featured-projects', 'bundle', 
 
     // Watch .md files
     gulp.watch('app/pages/*.md', ['md-page']);
-    
+
     // Watch .scss files
     gulp.watch('app/styles/**/*.scss', ['styles']);
-    
+
     // Watch templates
     gulp.watch('app/templates/*.html', ['md-page', 'html', 'featured-projects']);
 
