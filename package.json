@@ -2,7 +2,7 @@
   "name": "code-nus",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap-sass": "^3.2.7",
     "jquery": "~2.1",
     "lunr": "",
     "react": "^0.13.3",
