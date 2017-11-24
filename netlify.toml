@@ -1,5 +1,5 @@
 [build]
-  command = "npm rebuild node-sass && npm run fetch && npm run build"
+  command = "yarn rebuild node-sass && yarn run fetch && yarn run build"
   publish = "dist"
 
 [build.environment]
