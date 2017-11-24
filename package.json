@@ -2,9 +2,9 @@
   "name": "code-nus",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap-sass": "^3.2.7",
+    "bootstrap-sass": "^3.3.7",
     "jquery": "~2.1",
-    "lunr": "",
+    "lunr": "^2.1.4",
     "react": "^0.13.3",
     "reactify": "^1.1.1"
   },
@@ -36,8 +36,5 @@
     "node-jsx": "^0.13.3",
     "swig": "~1.4",
     "through2": "~0.6"
-  },
-  "engines": {
-    "node": ">=0.10.0"
   }
 }
