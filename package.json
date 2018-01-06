@@ -1,42 +1,24 @@
 {
   "name": "code-nus",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "jquery": "~2.1",
-    "lunr": "^2.1.4",
-    "optipng-bin": "^4.0.0",
-    "react": "^0.13.3",
-    "reactify": "^1.1.1"
+    "dotenv": "^4.0.0"
   },
   "scripts": {
-    "json": "gulp fetch json",
-    "start": "gulp watch",
-    "build": "gulp build"
+    "scrape": "node scrape",
+    "start": ""
   },
   "devDependencies": {
-    "axios": "^0.17.1",
-    "gulp": "~3.5.0",
-    "gulp-autoprefixer": "~0.0.6",
-    "gulp-bower": "0.0.3",
-    "gulp-browserify": "~0.4.6",
-    "gulp-cache": "~0.1.1",
-    "gulp-clean": "~0.2.4",
-    "gulp-connect": "~1.0.0",
-    "gulp-imagemin": "~0.1.4",
-    "gulp-jshint": "~1.4.0",
-    "gulp-load-plugins": "~0.3.0",
-    "gulp-markdown": "~1.0",
-    "gulp-react": "^3.0.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-size": "~0.1.2",
-    "gulp-toc": "^0.1.0",
-    "gulp-uglify": "",
-    "gulp-useref": "~0.4.4",
-    "gulp-util": "~2.2.9",
-    "node-jsx": "^0.13.3",
-    "node-sass": "^4.7.2",
-    "swig": "~1.4",
-    "through2": "~0.6"
-  }
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "github": "^13.0.1",
+    "graphql-request": "^1.4.1",
+    "jest": "^22.0.4",
+    "lodash": "^4.17.4",
+    "prettier": "^1.9.2",
+    "write-file-atomic": "^2.3.0"
+  },
+  "license": "MIT"
 }
