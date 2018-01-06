@@ -7,13 +7,14 @@ function setGraphqlResponses(responses = DEFAULT_RESPONSES) {
 }
 
 const graphqlApi = {
+  // eslint-disable-next-line
   request(query, variables) {
     return new Promise((resolve, reject) => {
       process.nextTick(
         () =>
           graphqlResponses.length
             ? resolve(graphqlResponses.shift())
-            : reject({ error: 'No response found' }),
+            : reject(new Error('No response found')),
       );
     });
   },
