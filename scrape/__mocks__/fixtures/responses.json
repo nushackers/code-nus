@@ -1,0 +1,129 @@
+[
+  {
+    "repository": {
+      "forks": {
+        "pageInfo": {
+          "endCursor": "Y3Vyc29yOnYyOpHOA/XvLw==",
+          "hasNextPage": true
+        },
+        "nodes": [
+          {
+            "assignableUsers": {
+              "nodes": [
+                {
+                  "id": "testUser",
+                  "repositories": {
+                    "nodes": [
+                      {
+                        "nameWithOwner": "sdf",
+                        "url": "https://github.com/lkasdjfa/sdf",
+                        "description": "Beach Volleyball Match Analysis",
+                        "stargazers": { "totalCount": 4 }
+                      },
+                      {
+                        "nameWithOwner": "sdafu",
+                        "url": "https://github.com/m13ds5/sdafu",
+                        "description": null,
+                        "stargazers": { "totalCount": 4 }
+                      },
+                      {
+                        "nameWithOwner": "jsdf89",
+                        "url": "https://github.com/2we3225/ljowiej",
+                        "description": null,
+                        "stargazers": { "totalCount": 4 }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "assignableUsers": {
+              "nodes": [
+                {
+                  "id": "testUser2",
+                  "repositories": {
+                    "nodes": [
+                      {
+                        "nameWithOwner": "1sdf",
+                        "url": "https://github.com/lkasdjfa/sdf",
+                        "description": "Beach Volleyball Match Analysis",
+                        "stargazers": { "totalCount": 4 }
+                      },
+                      {
+                        "nameWithOwner": "2sdafu",
+                        "url": "https://github.com/m13ds5/sdafu",
+                        "description": null,
+                        "stargazers": { "totalCount": 4 }
+                      },
+                      {
+                        "nameWithOwner": "3jsdf89",
+                        "url": "https://github.com/2we3225/ljowiej",
+                        "description": null,
+                        "stargazers": { "totalCount": 4 }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "repository": {
+      "forks": {
+        "pageInfo": {
+          "endCursor": "Y3Vyc29yOnYyOpHOA/XdEw==",
+          "hasNextPage": true
+        },
+        "nodes": [
+          {
+            "assignableUsers": {
+              "nodes": [
+                {
+                  "id": "testUser",
+                  "repositories": {
+                    "nodes": [
+                      {
+                        "nameWithOwner": "sdf",
+                        "url": "https://github.com/lkasdjfa/sdf",
+                        "description": "Beach Volleyball Match Analysis",
+                        "stargazers": { "totalCount": 4 }
+                      },
+                      {
+                        "nameWithOwner": "sdafu",
+                        "url": "https://github.com/m13ds5/sdafu",
+                        "description": null,
+                        "stargazers": { "totalCount": 4 }
+                      },
+                      {
+                        "nameWithOwner": "jsdf89",
+                        "url": "https://github.com/2we3225/ljowiej",
+                        "description": null,
+                        "stargazers": { "totalCount": 4 }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "repository": {
+      "forks": {
+        "pageInfo": {
+          "endCursor": "Y3Vyc29yOnYyOpHOA/XdEw==",
+          "hasNextPage": false
+        }
+      }
+    }
+  }
+]
