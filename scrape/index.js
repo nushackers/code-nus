@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const _ = require('lodash');
 const writeFileAtomic = require('write-file-atomic');
 const Scraper = require('./scraper');
 
@@ -14,14 +13,16 @@ const repoOptions = [
 ];
 
 async function processAllData() {
-  let allUsers = [];
+  const userMap = {};
   for (const repoOption of repoOptions) {
     // "throttle" calls so github don't 304 us
     // eslint-disable-next-line  no-await-in-loop
     const contents = await new Scraper(repoOption).collect();
-    allUsers = allUsers.concat(contents);
+    contents.forEach((user) => {
+      userMap[user.userId] = user;
+    });
   }
-  const uniqueUsers = _.uniqBy(allUsers, 'userId');
+  const uniqueUsers = Object.values(userMap);
 
   const json = JSON.stringify(uniqueUsers, null, 2);
   writeFileAtomic(`data/users.json`, json, (err) => {

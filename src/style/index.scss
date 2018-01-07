@@ -1,0 +1,11 @@
+// 3rd-party imports
+@import './bootstrap.scss';
+
+html, body, #app {
+	height: 100%;
+}
+
+#app {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
