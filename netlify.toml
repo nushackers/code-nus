@@ -1,0 +1,6 @@
+[build]
+  command = "npm rebuild node-sass && npm run build"
+  publish = "build"
+
+[build.environment]
+  YARN_VERSION = "1.3.2"
