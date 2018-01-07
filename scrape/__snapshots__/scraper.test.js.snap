@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scraper should process scaped data cleanly and remove duplicates 1`] = `
+Array [
+  Object {
+    "avatarUrl": "https://avatars3.githubusercontent.com/u/7464833?v=4",
+    "login": "sdfsdfsdf",
+    "name": "Chan Jun Wei",
+    "repositories": Array [
+      Object {
+        "descriptionHTML": "<div> Creating multiple angular cli app to modularize the project</div>",
+        "homepageUrl": "",
+        "nameWithOwner": "chanjunweimy/angular-multiple-app",
+        "primaryLanguage": "TypeScript",
+        "repositoryTopics": Array [],
+        "stargazers": 7,
+        "url": "https://github.com/chanjunweimy/angular-multiple-app",
+      },
+      Object {
+        "descriptionHTML": "<div>Demo of using multiple angular applications and aspnetboilerplate to create plugin application</div>",
+        "homepageUrl": "",
+        "nameWithOwner": "chanjunweimy/abp_plugin_with_ui",
+        "primaryLanguage": "C#",
+        "repositoryTopics": Array [
+          "aspnetboilerplate",
+          "angular4",
+          "angular-cli",
+        ],
+        "stargazers": 4,
+        "url": "https://github.com/chanjunweimy/abp_plugin_with_ui",
+      },
+      Object {
+        "descriptionHTML": "<div></div>",
+        "homepageUrl": null,
+        "nameWithOwner": "chanjunweimy/CBARS",
+        "primaryLanguage": "Java",
+        "repositoryTopics": Array [],
+        "stargazers": 3,
+        "url": "https://github.com/chanjunweimy/CBARS",
+      },
+      Object {
+        "descriptionHTML": "<div>Search Machine</div>",
+        "homepageUrl": null,
+        "nameWithOwner": "chanjunweimy/SearchMachine",
+        "primaryLanguage": "Java",
+        "repositoryTopics": Array [],
+        "stargazers": 1,
+        "url": "https://github.com/chanjunweimy/SearchMachine",
+      },
+    ],
+  },
+  Object {
+    "avatarUrl": "https://avatars3.githubusercontent.com/u/8993333?v=4",
+    "login": "YukiXueli",
+    "name": null,
+    "repositories": Array [
+      Object {
+        "descriptionHTML": "<div></div>",
+        "homepageUrl": null,
+        "nameWithOwner": "YukiXueli/image-cache-and-sync",
+        "primaryLanguage": "Java",
+        "repositoryTopics": Array [],
+        "stargazers": 0,
+        "url": "https://github.com/YukiXueli/image-cache-and-sync",
+      },
+    ],
+  },
+]
+`;

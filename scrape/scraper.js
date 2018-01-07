@@ -13,18 +13,32 @@ const query = `
         nodes {
           assignableUsers(first: 5) {
             nodes {
-              id
+              name
+              login
+              avatarUrl
               repositories(
                 first: 5
                 isFork: false
                 orderBy: { field: STARGAZERS, direction: DESC }
+                affiliations: [OWNER, ORGANIZATION_MEMBER]
               ) {
                 nodes {
                   nameWithOwner
+                  descriptionHTML
                   url
-                  description
+                  homepageUrl
                   stargazers {
                     totalCount
+                  }
+                  primaryLanguage {
+                    name
+                  }
+                  repositoryTopics(first: 3) {
+                    nodes {
+                      topic {
+                        name
+                      }
+                    }
                   }
                 }
               }
@@ -47,7 +61,7 @@ class Scraper {
    *
    * returns an array of nodes right under forks layer
    */
-  async _getAllForks() {
+  async getAllForks() {
     let forks = [];
 
     const pager = (response) => {
@@ -72,22 +86,29 @@ class Scraper {
    * Remaps data to a unnested state
    * @param {*} forks
    */
-  static _processForks(forks) {
+  static processForks(forks) {
     const allUsers = _.flatMap(forks, (fork) => fork.assignableUsers.nodes);
-    const users = allUsers.map((node) => ({
-      userId: node.id,
-      repositories: node.repositories.nodes.map((repo) =>
-        Object.assign({}, repo, {
-          stargazers: repo.stargazers.totalCount,
-        }),
-      ),
-    }));
-    return _.uniqBy(users, 'userId');
+    const userMap = {};
+    allUsers.forEach((node) => {
+      userMap[node.login] = {
+        name: node.name,
+        login: node.login,
+        avatarUrl: node.avatarUrl,
+        repositories: node.repositories.nodes.map((repo) =>
+          Object.assign({}, repo, {
+            primaryLanguage: repo.primaryLanguage.name,
+            stargazers: repo.stargazers.totalCount,
+            repositoryTopics: repo.repositoryTopics.nodes.map((topicNode) => topicNode.topic.name),
+          }),
+        ),
+      };
+    });
+    return Object.values(userMap);
   }
 
   async collect() {
-    const nodes = await this._getAllForks();
-    return this._processForks(nodes);
+    const nodes = await this.getAllForks();
+    return Scraper.processForks(nodes);
   }
 
   async scrapeAsJson() {

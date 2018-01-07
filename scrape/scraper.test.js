@@ -2,7 +2,7 @@ jest.mock('write-file-atomic');
 jest.mock('./api');
 
 const writeFileAtomic = require('write-file-atomic');
-const Scraper = require('./index');
+const Scraper = require('./scraper');
 
 const scraper = new Scraper();
 
@@ -13,13 +13,13 @@ describe('scraper', () => {
   });
 
   it('should scrape from root repos for forks', async () => {
-    const results = await scraper._getAllForks();
+    const results = await scraper.getAllForks();
     expect(results).toHaveLength(3);
   });
 
   it('should process scaped data cleanly and remove duplicates', async () => {
-    const results = await scraper._getAllForks();
-    const processed = scraper._processForks(results);
+    const results = await scraper.getAllForks();
+    const processed = Scraper.processForks(results);
     expect(processed).toHaveLength(2);
     expect(processed).toMatchSnapshot();
   });

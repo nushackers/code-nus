@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const GitHubApi = require('github');
 const { GraphQLClient } = require('graphql-request');
 

@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const writeFileAtomic = require('write-file-atomic');
 const Scraper = require('./scraper');
 
@@ -19,7 +17,7 @@ async function processAllData() {
     // eslint-disable-next-line  no-await-in-loop
     const contents = await new Scraper(repoOption).collect();
     contents.forEach((user) => {
-      userMap[user.userId] = user;
+      userMap[user.login] = user;
     });
   }
   const uniqueUsers = Object.values(userMap);
