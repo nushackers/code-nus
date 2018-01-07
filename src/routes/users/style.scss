@@ -1,0 +1,57 @@
+@import '../../style/bootstrap.scss';
+
+.users {
+}
+
+.profile {
+	composes: card from '../projects/style.scss';
+	margin: 1rem 1rem 0 0;
+}
+
+.link {
+	composes: link from '../projects/style.scss';
+}
+
+.profileLink {
+	composes: h4 from global;
+	composes: link;
+	margin-bottom: 0;
+}
+
+.avatar {
+	height: 76px;
+	width: 76px;
+	margin: 1rem;
+}
+
+.repos {
+	margin: 0.35rem 0;
+	padding: 0;
+}
+
+.repo {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.1rem 0;
+}
+
+
+@include media-breakpoint-up(md) {
+	.users {
+		display: grid;                                            
+		grid-gap: 1rem;                                             
+		grid-template-columns: repeat(auto-fill, minmax(40%, 2fr)); 
+	}	
+
+	.profile {
+		margin: 0;
+	}
+}
+
+
+
+@include media-breakpoint-up(xl) {
+	.users {                                  
+		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); 
+	}
+}

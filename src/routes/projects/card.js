@@ -33,20 +33,27 @@ export default class Card extends Component {
             }}
           />
         </div>
-        {homepageUrl && <a href={homepageUrl}>{homepageUrl}</a>}
-        <div className={style.info}>
-          <span className={style.detail}>{primaryLanguage}</span>
-          <span className={style.detail}>
-            <span role="img" aria-label="star">
-              ⭐
-            </span>{' '}
-            {stargazers}
-          </span>
-          {repositoryTopics.length > 0 && (
-            <span className={style.topics}>
-              {repositoryTopics.map((topic) => <span className={style.topic}>{topic}</span>)}
-            </span>
+        <div>
+          {homepageUrl && (
+            <p>
+              Homepage:
+              <a className={style.link} href={homepageUrl}>
+                {homepageUrl}
+              </a>
+            </p>
           )}
+          {repositoryTopics.length > 0 && (
+            <p>{repositoryTopics.map((topic) => <span className={style.topic}>{topic}</span>)}</p>
+          )}
+          <div className={style.info}>
+            <span className={style.detail}>{primaryLanguage}</span>
+            <span className={style.detail}>
+              <span role="img" aria-label="star">
+                ⭐
+              </span>{' '}
+              {stargazers}
+            </span>
+          </div>
         </div>
       </div>
     );

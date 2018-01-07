@@ -1,13 +1,11 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import axios from 'axios';
 
 import Header from './header';
 import Home from '../routes/home';
 import Projects from '../routes/projects';
 import Users from '../routes/users';
 import users from '../../data/users.json';
-import { promisify } from 'util';
 // import Home from 'async!../routes/home';
 // import Profile from 'async!../routes/profile';
 
@@ -32,16 +30,14 @@ export default class App extends Component {
     //   const projects = users.reduce((acc, userRepos) => acc.concat(userRepos), []);
     //   this.setState({ users, projects });
     // });
-
-    const x = users.slice(0, 10);
     const projectMap = {};
-    x.forEach(({ repositories }) => {
+    users.forEach(({ repositories }) => {
       repositories.forEach((repo) => {
         projectMap[repo.nameWithOwner] = repo;
       });
     });
     const projects = Object.values(projectMap);
-    this.setState({ users: x, projects });
+    this.setState({ users, projects });
   }
 
   render(props, state) {
