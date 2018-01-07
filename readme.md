@@ -4,26 +4,19 @@ This is the source code for [http://code.nushackers.org](http://code.nushackers.
 
 # Getting started
 
-First, install [node.js](http://nodejs.org). Then install `bower` and `gulp`
-
-```bash
-$ npm install -g bower gulp
-```
+First, install [node.js](https://nodejs.org) and [yarn](https://yarnpkg.com)
 
 Then, install the local dependencies
 
 ```bash
-$ bower install
-$ npm install
+$ yarn install
 ```
 
-Then install ruby and scss.
-
-Then set up the data files. To do so, you can copy `app/scripts/data.json.example` to `app/scripts/data.json`, or obtain the most up-to-date data file from [https://github.com/nushackers/code-nus-repos](https://github.com/nushackers/code-nus-repos).
+Copy `.env.example` to `.env` with your very own [Github token](https://github.com/settings/tokens).
 
 Finally start developing with
 
 ```bash
-$ gulp watch
+$ yarn start
 ```
 
