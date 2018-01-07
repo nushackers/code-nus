@@ -1,26 +1,38 @@
 {
   "name": "code-nus",
   "version": "1.0.0",
-  "dependencies": {
-    "dotenv": "^4.0.0"
-  },
   "scripts": {
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact build && preact serve",
+    "dev": "preact watch",
     "scrape": "node scrape",
-    "start": "",
     "lint": "eslint .",
     "test": "jest --watch"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.3",
+    "dotenv": "^4.0.0",
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0",
+    "preact-router": "^2.5.7"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-config-synacor": "^2.0.2",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.4.0",
     "github": "^13.0.1",
     "graphql-request": "^1.4.1",
+    "if-env": "^1.0.0",
     "jest": "^22.0.4",
     "lodash": "^4.17.4",
+    "node-sass": "^4.7.2",
+    "preact-cli": "^2.0.1",
     "prettier": "^1.9.2",
+    "sass-loader": "^6.0.6",
     "write-file-atomic": "^2.3.0"
   },
   "license": "MIT"
