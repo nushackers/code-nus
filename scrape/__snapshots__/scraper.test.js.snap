@@ -9,7 +9,6 @@ Array [
     "repositories": Array [
       Object {
         "descriptionHTML": "<div> Creating multiple angular cli app to modularize the project</div>",
-        "diskUsage": 50,
         "homepageUrl": "",
         "nameWithOwner": "chanjunweimy/angular-multiple-app",
         "primaryLanguage": "TypeScript",
@@ -19,7 +18,6 @@ Array [
       },
       Object {
         "descriptionHTML": "<div>Demo of using multiple angular applications and aspnetboilerplate to create plugin application</div>",
-        "diskUsage": 50,
         "homepageUrl": "",
         "nameWithOwner": "chanjunweimy/abp_plugin_with_ui",
         "primaryLanguage": "C#",
@@ -33,7 +31,6 @@ Array [
       },
       Object {
         "descriptionHTML": "<div></div>",
-        "diskUsage": 50,
         "homepageUrl": null,
         "nameWithOwner": "chanjunweimy/CBARS",
         "primaryLanguage": "Java",
@@ -43,7 +40,6 @@ Array [
       },
       Object {
         "descriptionHTML": "<div>Search Machine</div>",
-        "diskUsage": 50,
         "homepageUrl": null,
         "nameWithOwner": "chanjunweimy/SearchMachine",
         "primaryLanguage": "Java",
@@ -60,7 +56,6 @@ Array [
     "repositories": Array [
       Object {
         "descriptionHTML": "<div></div>",
-        "diskUsage": 50,
         "homepageUrl": null,
         "nameWithOwner": "YukiXueli/image-cache-and-sync",
         "primaryLanguage": "Java",

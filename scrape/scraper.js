@@ -94,21 +94,27 @@ class Scraper {
     const allUsers = _.flatMap(forks, (fork) => fork.assignableUsers.nodes);
     const userMap = {};
     allUsers.forEach((node) => {
+      const meaningfulRepos = node.repositories.nodes
+        .filter((repo) => repo.diskUsage && repo.diskUsage > MIN_REPO_SIZE)
+        .map((repo) =>
+          Object.assign({}, repo, {
+            diskUsage: undefined,
+            primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], 'N/A'),
+            stargazers: repo.stargazers.totalCount,
+            repositoryTopics: repo.repositoryTopics.nodes.map((topicNode) => topicNode.topic.name),
+          }),
+        );
+
+      // exclude users with no repos
+      if (!meaningfulRepos.length) {
+        return;
+      }
+
       userMap[node.login] = {
         name: node.name,
         login: node.login,
         avatarUrl: node.avatarUrl,
-        repositories: node.repositories.nodes
-          .filter((repo) => repo.diskUsage && repo.diskUsage > MIN_REPO_SIZE)
-          .map((repo) =>
-            Object.assign({}, repo, {
-              primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], 'N/A'),
-              stargazers: repo.stargazers.totalCount,
-              repositoryTopics: repo.repositoryTopics.nodes.map(
-                (topicNode) => topicNode.topic.name,
-              ),
-            }),
-          ),
+        repositories: meaningfulRepos,
       };
     });
     return Object.values(userMap);

@@ -21,7 +21,8 @@ describe('scraper', () => {
     const results = await scraper.getAllForks();
     const processed = Scraper.processForks(results);
     expect(processed).toHaveLength(2);
-    expect(processed).toMatchSnapshot();
+    // stringify then parse to get rid of undefined values
+    expect(JSON.parse(JSON.stringify(processed, null, 2))).toMatchSnapshot();
   });
 
   it('should write to file accordingly', async () => {

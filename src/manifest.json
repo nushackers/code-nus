@@ -1,6 +1,6 @@
 {
-  "name": "my-project",
-  "short_name": "my-project",
+  "name": "code@nus",
+  "short_name": "code@nus",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
