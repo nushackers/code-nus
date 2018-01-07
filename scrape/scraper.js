@@ -96,7 +96,7 @@ class Scraper {
         avatarUrl: node.avatarUrl,
         repositories: node.repositories.nodes.map((repo) =>
           Object.assign({}, repo, {
-            primaryLanguage: repo.primaryLanguage.name,
+            primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], 'N/A'),
             stargazers: repo.stargazers.totalCount,
             repositoryTopics: repo.repositoryTopics.nodes.map((topicNode) => topicNode.topic.name),
           }),

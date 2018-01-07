@@ -34,5 +34,5 @@ processAllData()
     console.log('success!'); // eslint-disable-line
   })
   .catch((error) => {
-    throw error;
+    console.error(error);
   });
