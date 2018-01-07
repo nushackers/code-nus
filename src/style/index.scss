@@ -9,3 +9,19 @@ html, body, #app {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.container {
+	margin: 5rem 1rem;
+}
+
+@include media-breakpoint-up(md) {
+	.container {
+		margin: 5rem auto;
+		max-width: map-get($container-max-widths, md);
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.container {
+		max-width: map-get($container-max-widths, xl);
+	}

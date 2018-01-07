@@ -1,0 +1,52 @@
+@import '../../style/bootstrap.scss';
+
+.repo {
+	margin: 1rem 0 0 0;
+	padding: 1rem;
+	background: $white;
+	border-radius: 0.3rem;
+
+}
+
+.info {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.detail {
+	min-width: 2rem;
+	margin-right: 1.5rem;
+}
+
+.topics {
+	margin-left: auto;
+}
+
+.topic {
+	background: $gray-100;
+	padding: 0.1rem 0.25rem;
+	border-radius: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+
+@include media-breakpoint-up(md) {
+	.projects {
+		display: flex;
+		flex-wrap: wrap;		
+	}
+
+	.repo {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1 0 calc(50% - 1rem);
+		margin-left: 1rem;
+	}	
+}
+
+@include media-breakpoint-up(xl) {
+	.repo {
+		flex: 1 0 calc(33% - 1rem);
+	}
+}

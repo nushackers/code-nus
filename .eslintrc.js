@@ -1,14 +1,21 @@
 const WARN_IN_DEV = process.env.NODE_ENV === 'production' ? 'error' : 'warn';
 
 module.exports = {
-  extends: ['synacor', 'airbnb-base', 'prettier'],
+  extends: ['synacor', 'airbnb', 'prettier'],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': WARN_IN_DEV,
     // Allow hidden functions
-    "no-underscore-dangle": [WARN_IN_DEV, { "allowAfterThis": true }],
+    'no-underscore-dangle': [WARN_IN_DEV, { allowAfterThis: true }],
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': 'off',
     // Let git handle the linebreaks instead.
     'linebreak-style': 'off',
+  },
+  settings: {
+    react: {
+      pragma: 'h',
+    },
   },
   overrides: [
     {
@@ -18,8 +25,8 @@ module.exports = {
       },
       rules: {
         // Allow hidden functions for testing
-        "no-underscore-dangle": 'off',
-      }
+        'no-underscore-dangle': 'off',
+      },
     },
   ],
 };

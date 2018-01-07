@@ -33,25 +33,28 @@ export default class App extends Component {
     //   this.setState({ users, projects });
     // });
 
+    const x = users.slice(0, 10);
     const projectMap = {};
-    users.forEach(({ repositories }) => {
+    x.forEach(({ repositories }) => {
       repositories.forEach((repo) => {
         projectMap[repo.nameWithOwner] = repo;
       });
     });
     const projects = Object.values(projectMap);
-    this.setState({ users, projects });
+    this.setState({ users: x, projects });
   }
 
   render(props, state) {
     return (
       <div id="app">
         <Header />
-        <Router onChange={this.handleRoute}>
-          <Home path="/" />
-          <Projects path="/projects/" projects={state.projects} />
-          <Users path="/users/" users={state.users} />
-        </Router>
+        <main className="container">
+          <Router onChange={this.handleRoute}>
+            <Home path="/" />
+            <Projects path="/projects/" projects={state.projects} />
+            <Users path="/users/" users={state.users} />
+          </Router>
+        </main>
       </div>
     );
   }
