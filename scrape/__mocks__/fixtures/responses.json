@@ -27,6 +27,7 @@
                         "primaryLanguage": {
                           "name": "Python"
                         },
+                        "diskUsage": 50,
                         "repositoryTopics": {
                           "nodes": []
                         }
@@ -42,6 +43,7 @@
                         "primaryLanguage": {
                           "name": "HTML"
                         },
+                        "diskUsage": 5,
                         "repositoryTopics": {
                           "nodes": []
                         }
@@ -57,6 +59,7 @@
                         "primaryLanguage": {
                           "name": "Python"
                         },
+                        "diskUsage": 5,
                         "repositoryTopics": {
                           "nodes": []
                         }
@@ -87,6 +90,7 @@
                         "primaryLanguage": {
                           "name": "Java"
                         },
+                        "diskUsage": 50,
                         "repositoryTopics": {
                           "nodes": []
                         }
@@ -129,6 +133,7 @@
                         "primaryLanguage": {
                           "name": "TypeScript"
                         },
+                        "diskUsage": 50,
                         "repositoryTopics": {
                           "nodes": []
                         }
@@ -144,6 +149,7 @@
                         "primaryLanguage": {
                           "name": "C#"
                         },
+                        "diskUsage": 50,
                         "repositoryTopics": {
                           "nodes": [
                             {
@@ -175,6 +181,7 @@
                         "primaryLanguage": {
                           "name": "Java"
                         },
+                        "diskUsage": 50,
                         "repositoryTopics": {
                           "nodes": []
                         }
@@ -190,6 +197,7 @@
                         "primaryLanguage": {
                           "name": "Java"
                         },
+                        "diskUsage": 50,
                         "repositoryTopics": {
                           "nodes": []
                         }

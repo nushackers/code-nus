@@ -2,6 +2,9 @@ const _ = require('lodash');
 const writeFileAtomic = require('write-file-atomic');
 const { graphqlApi } = require('./api');
 
+// Minimum in kb
+const MIN_REPO_SIZE = 10;
+
 const query = `
   query($owner: String!, $name: String!, $pageCursor: String) {
     repository(owner: $owner, name: $name) {
@@ -27,6 +30,7 @@ const query = `
                   descriptionHTML
                   url
                   homepageUrl
+                  diskUsage
                   stargazers {
                     totalCount
                   }
@@ -94,13 +98,17 @@ class Scraper {
         name: node.name,
         login: node.login,
         avatarUrl: node.avatarUrl,
-        repositories: node.repositories.nodes.map((repo) =>
-          Object.assign({}, repo, {
-            primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], 'N/A'),
-            stargazers: repo.stargazers.totalCount,
-            repositoryTopics: repo.repositoryTopics.nodes.map((topicNode) => topicNode.topic.name),
-          }),
-        ),
+        repositories: node.repositories.nodes
+          .filter((repo) => repo.diskUsage && repo.diskUsage > MIN_REPO_SIZE)
+          .map((repo) =>
+            Object.assign({}, repo, {
+              primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], 'N/A'),
+              stargazers: repo.stargazers.totalCount,
+              repositoryTopics: repo.repositoryTopics.nodes.map(
+                (topicNode) => topicNode.topic.name,
+              ),
+            }),
+          ),
       };
     });
     return Object.values(userMap);
