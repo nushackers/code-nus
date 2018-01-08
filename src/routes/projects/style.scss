@@ -1,45 +1,20 @@
 @import '../../style/bootstrap.scss';
 
-.card {
-	position: relative;
-	padding: 1rem;
-	background: $white;
-	border-radius: 0.3rem;
-	box-shadow: 5px 15px 25px -15px rgba(0,0,0,0.1);
-	transition: transform 0.15s ease-out;
-
-	&:hover {
-		transform: translateY(-2px);
+/* Namespace for algolia elements */
+.projects {
+	:global(.card) {
+		margin-bottom: 1rem;
 	}
+}
 
-	&:hover::before {
-		opacity: 1;
-	}
-
-	&::before {
-		content: '';
-		z-index: -1;
-		transition: opacity 0.15s ease-out;
-		opacity: 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		outline: 5rem red;
-		box-shadow: 5px 15px 25px -15px rgba(0,0,0,0.15);
-	}
+.searchContainer {
+	margin-bottom: 1rem;
 }
 
 .link {
 	display: inline-block;
 	word-break: break-all;
 	width: 100%;
-}
-
-.repo {
-	composes: card;
-	margin: 1rem 0 0 0;
 }
 
 .info {
@@ -63,23 +38,58 @@
 	margin-right: 0.5rem;
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(lg) {
 	.projects {
 		display: flex;
-		flex-wrap: wrap;		
+
+		:global(.card) {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: calc(50% - 1rem);
+			margin-left: 1rem;
+		}
+
+		:global(.ais-InfiniteHits__root) {
+			display: flex;
+			flex-wrap: wrap;		
+		}
+		
+		:global(.ais-InfiniteHits__loadMore) {
+			margin: 1rem 0 0 1rem;
+			width: 100%;
+		}
+	}
+	
+	.searchContainer {
+		flex: 1 0 auto;
+		margin-left: 1rem;
+	}
+	
+	.search {
+		position: fixed;
+		position: sticky;
+		top: 6rem;
 	}
 
-	.repo {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		width: calc(50% - 1rem);
-		margin-left: 1rem;
-	}	
+	.hits {
+		flex: 1 0 70%;
+		margin-right: 1rem;
+	}
 }
 
 @include media-breakpoint-up(xl) {
-	.repo {
-		width: calc(33% - 1rem);
+	.searchContainer {
+		margin-left: 5rem;
+	}
+
+	.hits {
+		margin-right: 10rem;
+	}
+
+	.projects {
+		:global(.card) {
+			width: calc(33% - 1rem);
+		}
 	}
 }

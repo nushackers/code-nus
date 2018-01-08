@@ -1,12 +1,12 @@
 @import '../../style/bootstrap.scss';
 
+/* Namespace for algolia elements */
 .users {
+	:global(.card) {
+		margin: 1rem 0;
+	}
 }
 
-.profile {
-	composes: card from '../projects/style.scss';
-	margin: 1rem 1rem 0 0;
-}
 
 .link {
 	composes: link from '../projects/style.scss';
@@ -38,20 +38,27 @@
 
 @include media-breakpoint-up(md) {
 	.users {
-		display: grid;                                            
-		grid-gap: 1rem;                                             
-		grid-template-columns: repeat(auto-fill, minmax(40%, 2fr)); 
-	}	
+		:global(.ais-InfiniteHits__root) {
+			display: grid;                                            
+			grid-gap: 1.5rem;                                             
+			grid-template-columns: repeat(auto-fill, minmax(40%, 2fr)); 
+		}
+
+		:global(.card) {
+			margin: 0;
+		}
+	}
+
 
 	.profile {
 		margin: 0;
 	}
 }
 
-
-
 @include media-breakpoint-up(xl) {
-	.users {                                  
-		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); 
+	.users {
+		:global(.ais-InfiniteHits__root) {                                 
+			grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); 
+		}
 	}
 }
