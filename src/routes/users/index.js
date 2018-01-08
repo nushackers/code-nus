@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { InstantSearch, SearchBox, InfiniteHits, PoweredBy } from 'react-instantsearch/dom';
+import { InstantSearch, SearchBox, InfiniteHits, PoweredBy } from '../../components/InstantSearch';
 import Card from './card';
 
 import style from './style.scss';

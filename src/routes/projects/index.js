@@ -6,7 +6,7 @@ import {
   Panel,
   RefinementList,
   PoweredBy,
-} from 'react-instantsearch/dom';
+} from '../../components/InstantSearch';
 import Card from './card';
 
 import style from './style.scss';

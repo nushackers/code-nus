@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "algoliasearch": "^3.24.9",
+    "copy-webpack-plugin": "^4.3.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -40,5 +41,11 @@
     "sass-loader": "^6.0.6",
     "write-file-atomic": "^2.3.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "browserslist": [
+    "last 2 versions",
+    "iOS >= 10",
+    "Safari >= 9",
+    "not ie <= 11"
+  ]
 }
