@@ -35,6 +35,13 @@
 	padding: 0.1rem 0;
 }
 
+.languages {
+	margin: 0.5rem 0;
+}
+
+.language {
+	composes: topic from '../projects/style.scss';
+}
 
 @include media-breakpoint-up(md) {
 	.users {
