@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style.css';
+import style from './style.scss';
 
 export default class Home extends Component {
   shouldComponentUpdate() {
@@ -8,7 +8,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className={style.home}>
+      <div className={`container card-static ${style.home}`}>
         <h1 className="display-1">Code @ NUS</h1>
         <p className="lead">The home for open source contributors and projects by NUS students.</p>
 

@@ -1,24 +1,29 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
-import style from './style.css';
+import style from './style.scss';
 
 export default class Header extends Component {
+  shouldComponentUpdate() {
+    return false;
+  }
   render() {
     return (
-      <header class={style.header}>
-        <h1>Code @ NUS</h1>
-        <nav>
-          <Link activeClassName={style.active} href="/">
+      <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${style.header}`}>
+        <Link className="navbar-brand" href="/">
+          Code@NUS
+        </Link>
+        <div className="navbar-nav">
+          <Link className="nav-item nav-link" activeClassName="active" href="/">
             Home
           </Link>
-          <Link activeClassName={style.active} href="/projects">
+          <Link className="nav-item nav-link" activeClassName="active" href="/projects">
             Projects
           </Link>
-          <Link activeClassName={style.active} href="/users">
+          <Link className="nav-item nav-link" activeClassName="active" href="/users">
             Users
           </Link>
-        </nav>
-      </header>
+        </div>
+      </nav>
     );
   }
 }
