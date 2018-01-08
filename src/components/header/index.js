@@ -8,7 +8,7 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <nav className={`navbar navbar-expand-lg navbar-dark fixed-top ${style.header}`}>
+      <nav className={`navbar navbar-expand navbar-dark fixed-top ${style.header}`}>
         <Link className="navbar-brand" href="/">
           Code@NUS
         </Link>

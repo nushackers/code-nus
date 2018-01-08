@@ -1,4 +1,5 @@
 // 3rd-party imports
+@import './utilities.scss';
 @import './bootstrap.scss';
 
 html, body {
@@ -6,7 +7,7 @@ html, body {
 }
 
 body {
-	padding: 4rem;
+	padding-top: 4rem;
 }
 
 #app {

@@ -1,5 +1,13 @@
+@import '../../style/utilities.scss';
+
 .home {
 	padding: 2.5rem 4rem 3.5rem;
 	min-height: 100%;
-	width: 100%;
+}
+
+
+@include media-breakpoint-down(md) {
+	:global(.display-1) {
+		font-size: 3rem;
+	}
 }

@@ -1,12 +1,9 @@
 // We duplicate the _bootstrap.scss so that we only include components we need
 
 // Core variables and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-// Our own variable overrides
-@import "variable-overrides";
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
 
 // Core styles
 // @import "~bootstrap/scss/print";
