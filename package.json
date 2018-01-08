@@ -15,7 +15,9 @@
     "dotenv": "^4.0.0",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
-    "preact-router": "^2.5.7"
+    "preact-router": "^2.5.7",
+    "react-instantsearch": "^4.4.0",
+    "react-instantsearch-theme-algolia": "^4.4.0"
   },
   "devDependencies": {
     "algoliasearch": "^3.24.9",
