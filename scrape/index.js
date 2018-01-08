@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const writeFileAtomic = require('write-file-atomic');
 const Scraper = require('./scraper');
 
@@ -13,7 +15,7 @@ const repoOptions = [
 async function processAllData() {
   const userMap = {};
   for (const repoOption of repoOptions) {
-    // "throttle" calls so github don't 304 us
+    // "throttle" calls so github don't 429 us
     // eslint-disable-next-line  no-await-in-loop
     const contents = await new Scraper(repoOption).collect();
     contents.forEach((user) => {

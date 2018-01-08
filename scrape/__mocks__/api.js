@@ -6,7 +6,7 @@ function setGraphqlResponses(responses = DEFAULT_RESPONSES) {
   graphqlResponses = responses.slice();
 }
 
-const graphqlApi = {
+const ghGraphqlApi = {
   // eslint-disable-next-line
   request(query, variables) {
     return new Promise((resolve, reject) => {
@@ -20,7 +20,7 @@ const graphqlApi = {
   },
 };
 
-api.graphqlApi = graphqlApi;
+api.ghGraphqlApi = ghGraphqlApi;
 api.setGraphqlResponses = setGraphqlResponses;
 
 module.exports = api;

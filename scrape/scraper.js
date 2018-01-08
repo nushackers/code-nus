@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const writeFileAtomic = require('write-file-atomic');
-const { graphqlApi } = require('./api');
+const { ghGraphqlApi } = require('./api');
 
 // Minimum in kb
 const MIN_REPO_SIZE = 10;
@@ -79,11 +79,11 @@ class Scraper {
         const variables = Object.assign({}, this.options, {
           pageCursor: pageInfo.endCursor,
         });
-        return graphqlApi.request(query, variables).then(pager);
+        return ghGraphqlApi.request(query, variables).then(pager);
       }
       return forks;
     };
-    return graphqlApi.request(query, this.options).then(pager);
+    return ghGraphqlApi.request(query, this.options).then(pager);
   }
 
   /**
@@ -98,8 +98,7 @@ class Scraper {
         .filter((repo) => repo.diskUsage && repo.diskUsage > MIN_REPO_SIZE)
         .map((repo) =>
           Object.assign({}, repo, {
-            diskUsage: undefined,
-            primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], 'N/A'),
+            primaryLanguage: _.get(repo, ['primaryLanguage', 'name'], undefined),
             stargazers: repo.stargazers.totalCount,
             repositoryTopics: repo.repositoryTopics.nodes.map((topicNode) => topicNode.topic.name),
           }),

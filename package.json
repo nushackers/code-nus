@@ -18,6 +18,7 @@
     "preact-router": "^2.5.7"
   },
   "devDependencies": {
+    "algoliasearch": "^3.24.9",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
