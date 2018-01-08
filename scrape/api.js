@@ -21,10 +21,11 @@ const ghGraphqlApi = new GraphQLClient('https://api.github.com/graphql', {
     Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
   },
 });
+
 /**
  * Algo docs: https://www.algolia.com/doc/api-client/javascript/getting-started/
  */
-const client = algoliasearch(process.ENV.ALGOLIA_APP_ID, process.ENV.ALGOLIA_API_KEY);
+const client = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_API_KEY);
 const algoliaProjectsIndex = client.initIndex('code@nus_projects');
 const algoliaUsersIndex = client.initIndex('code@nus_users');
 

@@ -2,6 +2,8 @@ require('dotenv').config();
 
 const writeFileAtomic = require('write-file-atomic');
 const Scraper = require('./scraper');
+const { algoliaProjectsIndex, algoliaUsersIndex } = require('./api');
+const { getUsersOnly, getReposOnly, diffIndexes } = require('./aggregate');
 
 const repoOptions = [
   undefined,
@@ -25,16 +27,34 @@ async function processAllData() {
   const uniqueUsers = Object.values(userMap);
 
   const json = JSON.stringify(uniqueUsers, null, 2);
-  writeFileAtomic(`data/users.json`, json, (err) => {
-    if (err) return Promise.reject(err);
-    return Promise.resolve();
+
+  return new Promise((resolve, reject) => {
+    writeFileAtomic(`data/users.json`, json, (err) => {
+      if (err) return reject(err);
+      return resolve(uniqueUsers);
+    });
   });
 }
 
-processAllData()
-  .then(() => {
-    console.log('success!'); // eslint-disable-line
-  })
-  .catch((error) => {
-    console.error(error);
+async function uploadToAlgolia() {
+  const data = await processAllData();
+  console.log('Scraped successfully! Uploading data to algolia...'); // eslint-disable-line
+
+  const users = getUsersOnly(data);
+  const changedUsers = await diffIndexes(algoliaUsersIndex, users);
+  algoliaUsersIndex.saveObjects(changedUsers, (err) => {
+    if (err) throw err;
   });
+
+  const repos = getReposOnly(data);
+  const changedRepos = await diffIndexes(algoliaProjectsIndex, repos);
+  algoliaProjectsIndex.saveObjects(changedRepos, (err) => {
+    if (err) throw err;
+  });
+}
+
+try {
+  uploadToAlgolia();
+} catch (err) {
+  console.error(err);
+}
