@@ -38,16 +38,38 @@
 	margin-right: 0.5rem;
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(sm) {
 	.projects {
 		display: flex;
 
 		:global(.card) {
+			margin-left: 1rem;
+		}
+	}
+	
+	.searchContainer {
+		flex: 1 0 auto;
+	}
+	
+	.search {
+		position: fixed;
+		position: sticky;
+		top: 6rem;
+	}
+
+	.hits {
+		flex: 1 1 70%;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.projects {
+		:global(.card) {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			width: calc(50% - 1rem);
-			margin-left: 1rem;
+			width: calc(50% - 1.5rem);
+			margin-left: 1.5rem;
 		}
 
 		:global(.ais-InfiniteHits__root) {
@@ -59,22 +81,6 @@
 			margin: 1rem 0 0 1rem;
 			width: 100%;
 		}
-	}
-	
-	.searchContainer {
-		flex: 1 0 auto;
-		margin-left: 1rem;
-	}
-	
-	.search {
-		position: fixed;
-		position: sticky;
-		top: 6rem;
-	}
-
-	.hits {
-		flex: 1 0 70%;
-		margin-right: 1rem;
 	}
 }
 
@@ -89,7 +95,7 @@
 
 	.projects {
 		:global(.card) {
-			width: calc(33% - 1rem);
+			width: calc(33% - 1.5rem);
 		}
 	}
 }

@@ -1,5 +1,12 @@
 import { h } from 'preact';
-import { InstantSearch, SearchBox, InfiniteHits, PoweredBy } from '../../components/InstantSearch';
+import {
+  InstantSearch,
+  SearchBox,
+  InfiniteHits,
+  Panel,
+  RefinementList,
+  PoweredBy,
+} from '../../components/InstantSearch';
 import Card from './card';
 
 import style from './style.scss';
@@ -14,13 +21,22 @@ export default function Users() {
       root={{
         Root: 'div',
         props: {
-          className: `container ${style.users}`,
+          className: `container-fluid ${style.users}`,
         },
       }}
     >
-      <SearchBox />
-      <PoweredBy />
-      <InfiniteHits hitComponent={Card} />
+      <section className={`${style.searchContainer}`}>
+        <div className={`card-static ${style.search}`}>
+          <SearchBox />
+          <PoweredBy />
+          <Panel title="Languages">
+            <RefinementList attributeName="languages" limitMin={7} showMore />
+          </Panel>
+        </div>
+      </section>
+      <section className={style.hits}>
+        <InfiniteHits hitComponent={Card} />
+      </section>
     </InstantSearch>
   );
 }

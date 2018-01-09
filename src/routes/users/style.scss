@@ -3,13 +3,24 @@
 /* Namespace for algolia elements */
 .users {
 	:global(.card) {
-		margin: 1rem 0;
+		margin-bottom: 1rem;
 	}
 }
 
-
 .link {
 	composes: link from '../projects/style.scss';
+}
+
+.searchContainer {
+	composes: searchContainer from '../projects/style.scss';
+}
+
+.search {
+	composes: search from '../projects/style.scss';
+}
+
+.hits {
+	composes: hits from '../projects/style.scss';
 }
 
 .profileLink {
@@ -43,7 +54,23 @@
 	composes: topic from '../projects/style.scss';
 }
 
+@include media-breakpoint-up(sm) {
+	.users {
+		display: flex;
+	}
+	
+	.hits {
+		margin-left: 1rem;
+	}
+}
+
 @include media-breakpoint-up(md) {
+	.hits {
+		margin-left: 1.5rem;
+	}
+}
+
+@include media-breakpoint-up(lg) {
 	.users {
 		:global(.ais-InfiniteHits__root) {
 			display: grid;                                            
@@ -55,14 +82,10 @@
 			margin: 0;
 		}
 	}
-
-
-	.profile {
-		margin: 0;
-	}
 }
 
 @include media-breakpoint-up(xl) {
+
 	.users {
 		:global(.ais-InfiniteHits__root) {                                 
 			grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); 
