@@ -9,7 +9,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className={`container card-static ${style.home}`}>
-        <h1 className="display-1">Code @ NUS</h1>
+        <h1 className="display-1">Code@NUS</h1>
         <p className="lead">The home for open source contributors and projects by NUS students.</p>
 
         <h2>Open source community</h2>
