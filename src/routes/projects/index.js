@@ -25,7 +25,7 @@ export default function Projects() {
         },
       }}
     >
-      <section className={`${style.searchContainer}`}>
+      <section className="search-container">
         <div className={`card-static ${style.search}`}>
           <SearchBox />
           <PoweredBy />
@@ -34,7 +34,7 @@ export default function Projects() {
           </Panel>
         </div>
       </section>
-      <section className={style.hits}>
+      <section className="hits-container">
         <InfiniteHits hitComponent={Card} />
       </section>
     </InstantSearch>

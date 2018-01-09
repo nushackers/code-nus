@@ -11,16 +11,8 @@
 	composes: link from '../projects/style.scss';
 }
 
-.searchContainer {
-	composes: searchContainer from '../projects/style.scss';
-}
-
 .search {
 	composes: search from '../projects/style.scss';
-}
-
-.hits {
-	composes: hits from '../projects/style.scss';
 }
 
 .profileLink {
@@ -57,29 +49,30 @@
 @include media-breakpoint-up(sm) {
 	.users {
 		display: flex;
-	}
-	
-	.hits {
-		margin-left: 1rem;
+		
+		:global(.card) {
+			margin-left: 1rem;
+		}
 	}
 }
 
 @include media-breakpoint-up(md) {
-	.hits {
-		margin-left: 1.5rem;
+	.users {
+		:global(.card) {
+			margin-left: 1rem;
+		}
 	}
 }
 
 @include media-breakpoint-up(lg) {
 	.users {
 		:global(.ais-InfiniteHits__root) {
-			display: grid;                                            
-			grid-gap: 1.5rem;                                             
+			display: grid;                                        
 			grid-template-columns: repeat(auto-fill, minmax(40%, 2fr)); 
 		}
 
 		:global(.card) {
-			margin: 0;
+			margin: 0 0 1.5rem 1.5rem;
 		}
 	}
 }

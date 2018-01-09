@@ -1,0 +1,80 @@
+$standard-curve: cubic-bezier(0.4, 0.0, 0.2, 1);
+$deceleration-curve: cubic-bezier(0.0, 0.0, 0.2, 1);
+$acceleration-curve: cubic-bezier(0.4, 0.0, 1, 1);
+$sharp-curve: cubic-bezier(0.4, 0.0, 0.6, 1);
+
+.container, .search-container, .hits-container {
+	animation-duration: 195ms;
+	animation-timing-function: $standard-curve;
+}
+
+.container, .search-container {
+	animation-name: fade-up;
+}
+
+.hits-container {
+    animation-duration: 275ms;
+    animation-name: fade-up-delayed;
+}
+
+#app {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&::before, &::after {
+        animation-duration: 900ms;
+        animation-timing-function: $deceleration-curve;
+    }
+    
+	&::before {
+        animation-name: swing-down;
+    }
+        
+	&::after {
+        animation-name: swing-up;
+    }
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0.25;
+		transform: translateY(0.3rem);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes swing-down{
+	from {
+		transform: rotate(10deg) translateY(-3.5rem);
+	}
+	to {
+		transform: rotate(12.5deg) translateY(0);
+	}
+}
+
+@keyframes swing-up {
+	from {
+		transform: rotate(10deg) translateY(3.5rem);
+	}
+	to {
+		transform: rotate(12.5deg) translateY(0);
+	}
+}
+
+@keyframes fade-up-delayed {
+	from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    25% {
+        opacity: 0.25;
+        transform: translateY(0.5rem);
+    }
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}

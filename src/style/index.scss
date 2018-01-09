@@ -1,6 +1,7 @@
 // 3rd-party imports
 @import './utilities.scss';
 @import './bootstrap.scss';
+@import './animation.scss';
 
 html, body {
 	height: 100%;
@@ -95,4 +96,26 @@ body {
 	max-width: 300px;
 	justify-content: flex-end;
 	font-size: 13px;
+}
+
+.search-container {
+	margin-bottom: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+	.search-container {
+		flex: 1 0 auto;
+	}
+	.hits-container {
+		flex: 1 1 70%;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.search-container {
+		margin-left: 5rem;
+	}
+	.hits-container {
+		margin-right: 10rem;
+	}
 }

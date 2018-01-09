@@ -7,10 +7,6 @@
 	}
 }
 
-.searchContainer {
-	margin-bottom: 1rem;
-}
-
 .link {
 	display: inline-block;
 	word-break: break-all;
@@ -46,19 +42,11 @@
 			margin-left: 1rem;
 		}
 	}
-	
-	.searchContainer {
-		flex: 1 0 auto;
-	}
-	
+
 	.search {
 		position: fixed;
 		position: sticky;
 		top: 6rem;
-	}
-
-	.hits {
-		flex: 1 1 70%;
 	}
 }
 
@@ -85,14 +73,6 @@
 }
 
 @include media-breakpoint-up(xl) {
-	.searchContainer {
-		margin-left: 5rem;
-	}
-
-	.hits {
-		margin-right: 10rem;
-	}
-
 	.projects {
 		:global(.card) {
 			width: calc(33% - 1.5rem);
