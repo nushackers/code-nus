@@ -11,16 +11,16 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "algoliasearch": "^3.24.9",
     "bootstrap": "^4.0.0-beta.3",
     "dotenv": "^4.0.0",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.7",
     "react-instantsearch": "^4.4.0",
-    "react-instantsearch-theme-algolia": "^4.4.0"
+    "react-instantsearch-theme-algolia": "^4.5.2"
   },
   "devDependencies": {
-    "algoliasearch": "^3.24.9",
     "copy-webpack-plugin": "^4.3.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",

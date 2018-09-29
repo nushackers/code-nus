@@ -26,6 +26,7 @@ module.exports = {
       rules: {
         // Allow hidden functions for testing
         'no-underscore-dangle': 'off',
+        'react/prefer-stateless-function': 'off',
       },
     },
   ],

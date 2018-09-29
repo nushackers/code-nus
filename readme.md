@@ -20,3 +20,8 @@ Finally start developing with
 $ yarn start
 ```
 
+## Scraping
+
+```bash
+$ yarn scrape
+```
