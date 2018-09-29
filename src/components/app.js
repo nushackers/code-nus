@@ -9,23 +9,19 @@ import Users from '../routes/users';
 // import Profile from 'async!../routes/profile';
 
 export default class App extends Component {
-  /** Gets fired when the route changes.
-   *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-   *	@param {string} event.url	The newly routed URL
-   */
-  handleRoute = (e) => {
-    this.currentUrl = e.url;
-  };
+  shouldComponentUpdate() {
+    return false;
+  }
 
-  render(props, state) {
+  render() {
     return (
       <div id="app">
         <Header />
         <main>
-          <Router onChange={this.handleRoute}>
+          <Router>
             <Home path="/" />
-            <Projects path="/projects/" projects={state.projects} />
-            <Users path="/users/" users={state.users} />
+            <Projects path="/projects/" />
+            <Users path="/users/" />
           </Router>
         </main>
       </div>
