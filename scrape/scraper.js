@@ -8,7 +8,7 @@ const MIN_REPO_SIZE = 10;
 const query = `
   query($owner: String!, $name: String!, $pageCursor: String) {
     repository(owner: $owner, name: $name) {
-      forks(first: 100, before: $pageCursor) {
+      forks(first: 10, before: $pageCursor) {
         pageInfo {
           endCursor
           hasNextPage
@@ -19,11 +19,12 @@ const query = `
               name
               login
               avatarUrl
-              repositories(
+              repositoriesContributedTo(
                 first: 5
-                isFork: false
+                isLocked: false
+                includeUserRepositories: true
                 orderBy: { field: STARGAZERS, direction: DESC }
-                affiliations: [OWNER, ORGANIZATION_MEMBER]
+                contributionTypes: [COMMIT]
               ) {
                 nodes {
                   nameWithOwner
@@ -94,7 +95,7 @@ class Scraper {
     const allUsers = _.flatMap(forks, (fork) => fork.assignableUsers.nodes);
     const userMap = {};
     allUsers.forEach((node) => {
-      const meaningfulRepos = node.repositories.nodes
+      const meaningfulRepos = node.repositoriesContributedTo.nodes
         .filter((repo) => repo.diskUsage && repo.diskUsage > MIN_REPO_SIZE)
         .map((repo) =>
           Object.assign({}, repo, {
