@@ -12,6 +12,9 @@ const repoOptions = [
 
   { owner: 'nus-cs2103-AY1718S1', name: 'addressbook-level4' },
   { owner: 'nus-cs2103-AY1718S2', name: 'addressbook-level4' },
+
+  { owner: 'nus-cs2103-AY1819S1', name: 'addressbook-level4' },
+  // { owner: 'nus-cs2103-AY1819S2', name: 'addressbook-level4' },
 ];
 
 async function processAllData() {
