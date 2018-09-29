@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const netlifyPlugin = require('preact-cli-plugin-netlify');
 
 module.exports = function(config, env, helpers) {
   config.node = {
@@ -28,4 +29,6 @@ module.exports = function(config, env, helpers) {
   config.plugins.push(new CopyWebpackPlugin([{ from: './src/assets', context: __dirname }], {
     copyUnmodified: true,
   }));
+
+  netlifyPlugin(config);
 };
