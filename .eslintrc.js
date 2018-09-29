@@ -4,13 +4,14 @@ module.exports = {
   extends: ['synacor', 'airbnb', 'prettier'],
   plugins: ['prettier'],
   rules: {
-    'prettier/prettier': WARN_IN_DEV,
     // Allow hidden functions
     'no-underscore-dangle': [WARN_IN_DEV, { allowAfterThis: true }],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     // Let git handle the linebreaks instead.
     'linebreak-style': 'off',
+    'react/prefer-stateless-function': 'off',
+    'prettier/prettier': WARN_IN_DEV,
   },
   settings: {
     react: {
@@ -26,7 +27,6 @@ module.exports = {
       rules: {
         // Allow hidden functions for testing
         'no-underscore-dangle': 'off',
-        'react/prefer-stateless-function': 'off',
       },
     },
   ],

@@ -2,9 +2,10 @@
 
 /* Namespace for algolia elements */
 .users {
-	:global(.card) {
-		margin-bottom: 1rem;
-	}
+  :global(.ais-InfiniteHits__root) {
+    display: grid;
+    grid-gap: 1rem;
+  }
 }
 
 .link {
@@ -24,7 +25,7 @@
 .avatar {
 	height: 76px;
 	width: 76px;
-	margin: 1rem;
+	margin: 0.2rem 0;
 }
 
 .repos {
@@ -39,6 +40,8 @@
 }
 
 .languages {
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0.5rem 0;
 }
 
@@ -46,42 +49,17 @@
 	composes: topic from '../projects/style.scss';
 }
 
-@include media-breakpoint-up(sm) {
-	.users {
-		display: flex;
-		
-		:global(.card) {
-			margin-left: 1rem;
-		}
-	}
-}
-
 @include media-breakpoint-up(md) {
 	.users {
-		:global(.card) {
-			margin-left: 1rem;
-		}
-	}
-}
+		display: flex;
 
-@include media-breakpoint-up(lg) {
-	.users {
 		:global(.ais-InfiniteHits__root) {
-			display: grid;                                        
-			grid-template-columns: repeat(auto-fill, minmax(40%, 2fr)); 
+			margin-left: 1rem;
+			grid-template-columns: repeat(auto-fill, minmax(250px, auto));
 		}
 
-		:global(.card) {
-			margin: 0 0 1.5rem 1.5rem;
-		}
-	}
-}
-
-@include media-breakpoint-up(xl) {
-
-	.users {
-		:global(.ais-InfiniteHits__root) {                                 
-			grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); 
+		:global(.ais-InfiniteHits__loadMore) {
+			grid-column: 1 / -1;
 		}
 	}
 }
